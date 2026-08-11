@@ -38,7 +38,6 @@ nav:
   - Application Flow: app-flow.md
   - UML Diagrams: uml-diagrams.md
   - System Design: system-design.md
-  - Cost Estimate: cost-estimate.md
   - Features:
       - Overview: features/overview.md
       - Lucky Modes: features/lucky-modes.md
