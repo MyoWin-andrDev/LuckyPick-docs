@@ -1,0 +1,75 @@
+site_name: LuckyPick EuroMillions Documentation
+site_description: Complete product, architecture, and technical documentation for the LuckyPick EuroMillions companion app.
+site_author: LuckyPick Team
+site_url: https://luckypick.eu/docs/
+
+theme:
+  name: material
+  language: en
+  palette:
+    # Default to Dark Night Mode
+    - scheme: slate
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+    - scheme: default
+      primary: black
+      accent: amber
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+  features:
+    - navigation.instant
+    - navigation.tracking
+    - navigation.tabs
+    - navigation.sections
+    - navigation.top
+    - navigation.footer
+    - search.suggest
+    - search.highlight
+    - content.code.copy
+    - content.code.annotate
+
+nav:
+  - Home: index.md
+  - Architecture: architecture.md
+  - Application Flow: app-flow.md
+  - UML Diagrams: uml-diagrams.md
+  - System Design: system-design.md
+  - Cost Estimate: cost-estimate.md
+  - Features:
+      - Overview: features/overview.md
+      - Lucky Modes: features/lucky-modes.md
+      - My Picks: features/my-picks.md
+      - Results & History: features/results-history.md
+      - Notifications: features/notifications.md
+      - Premium: features/premium.md
+      - Social Sharing: features/social-sharing.md
+  - Backend & Admin: backend-admin.md
+  - Website & Deep Links: website.md
+  - Development & Launch: development-launch.md
+
+plugins:
+  - search
+
+extra_css:
+  - stylesheets/extra.css
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences:
+      custom_fences:
+        - name: mermaid
+          class: mermaid
+          format: !!python/name:pymdownx.superfences.fence_code_format
+  - pymdownx.tabbed:
+      alternate_style: true
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.tasklist:
+      custom_checkbox: true
+  - attr_list
+  - tables
