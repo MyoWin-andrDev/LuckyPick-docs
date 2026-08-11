@@ -1,0 +1,2277 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete product, architecture, and technical documentation for the LuckyPick EuroMillions companion app.">
+      
+      
+        <meta name="author" content="LuckyPick Team">
+      
+      
+        <link rel="canonical" href="https://myowin-andrdev.github.io/LuckyPick-docs/workload/backend/">
+      
+      
+        <link rel="prev" href="../graphic-design/">
+      
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Backend - LuckyPick EuroMillions Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#backend-developer-workload" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LuckyPick EuroMillions Documentation" class="md-header__button md-logo" aria-label="LuckyPick EuroMillions Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LuckyPick EuroMillions Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Backend
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Architecture
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../app-flow/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Application Flow
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../uml-diagrams/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  UML Diagrams
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../system-design/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  System Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../features/overview/" class="md-tabs__link">
+          
+  
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../backend-admin/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Backend & Admin
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../website/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Website & Deep Links
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../development-launch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Development & Launch
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="../mobile-dev/" class="md-tabs__link">
+          
+  
+  
+  Workload
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LuckyPick EuroMillions Documentation" class="md-nav__button md-logo" aria-label="LuckyPick EuroMillions Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LuckyPick EuroMillions Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uml-diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UML Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/lucky-modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lucky Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/my-picks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    My Picks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/results-history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results & History
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/premium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Premium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/social-sharing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Social Sharing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backend-admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend & Admin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../website/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Website & Deep Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development-launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development & Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workload
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workload
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../mobile-dev/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Mobile Development
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uiux/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI/UX Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphic-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graphic Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-database-design-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Database Design &amp; Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Database Design &amp; Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL Tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis-keys-cache-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis Keys (Cache &amp; Rate Limiting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rest-api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. REST API Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. REST API Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-no-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public (no auth)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticated-usr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authenticated (/usr/*)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-automated-draw-scraper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Automated Draw Scraper
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-push-notification-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Push Notification Service
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Push Notification Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notification-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notification Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatch-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dispatch Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-iap-receipt-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. IAP Receipt Validation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. IAP Receipt Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ios-storekit-2-jws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iOS — StoreKit 2 (JWS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android-google-play-billing-v6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Android — Google Play Billing v6
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-admin-panel-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Admin Panel (Internal)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-infrastructure-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Infrastructure &amp; DevOps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Infrastructure &amp; DevOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-security-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Security Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-database-design-setup" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Database Design &amp; Setup
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Database Design &amp; Setup">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#postgresql-tables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        PostgreSQL Tables
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#indexes" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Indexes
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#redis-keys-cache-rate-limiting" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Redis Keys (Cache &amp; Rate Limiting)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-rest-api-endpoints" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. REST API Endpoints
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. REST API Endpoints">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#public-no-auth" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Public (no auth)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#authenticated-usr" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Authenticated (/usr/*)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#webhook" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Webhook
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-automated-draw-scraper" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Automated Draw Scraper
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-push-notification-service" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Push Notification Service
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. Push Notification Service">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#notification-types" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Notification Types
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#dispatch-logic" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Dispatch Logic
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-iap-receipt-validation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. IAP Receipt Validation
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. IAP Receipt Validation">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#ios-storekit-2-jws" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        iOS — StoreKit 2 (JWS)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#android-google-play-billing-v6" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Android — Google Play Billing v6
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-admin-panel-internal" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Admin Panel (Internal)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-infrastructure-devops" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Infrastructure &amp; DevOps
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="7. Infrastructure &amp; DevOps">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#required-environment-variables" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Required Environment Variables
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-security-checklist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Security Checklist
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="backend-developer-workload">Backend Developer Workload</h1>
+<p>Server-side work required to support the LuckyPick EuroMillions app.</p>
+<hr />
+<h2 id="summary">Summary</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Category</th>
+<th style="text-align: left;">Deliverables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Database</td>
+<td style="text-align: left;">6 tables, indexes, migrations</td>
+</tr>
+<tr>
+<td style="text-align: left;">REST API</td>
+<td style="text-align: left;">~20 LuckyPick-specific endpoints</td>
+</tr>
+<tr>
+<td style="text-align: left;">Data Scraper</td>
+<td style="text-align: left;">Automated cron (Tue + Fri)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Push Service</td>
+<td style="text-align: left;">FCM + APNs dispatch</td>
+</tr>
+<tr>
+<td style="text-align: left;">IAP Validation</td>
+<td style="text-align: left;">StoreKit 2 + Play Billing v6 receipt check</td>
+</tr>
+<tr>
+<td style="text-align: left;">Admin Panel</td>
+<td style="text-align: left;">Internal dashboard</td>
+</tr>
+<tr>
+<td style="text-align: left;">Infrastructure</td>
+<td style="text-align: left;">PostgreSQL, Redis, cron, server</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-database-design-setup">1. Database Design &amp; Setup</h2>
+<h3 id="postgresql-tables">PostgreSQL Tables</h3>
+<p><strong><code>draws</code></strong> — official EuroMillions draw results</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="n">draws</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a><span class="w">  </span><span class="n">id</span><span class="w">            </span><span class="n">BIGSERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a><span class="w">  </span><span class="n">draw_date</span><span class="w">     </span><span class="nb">DATE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="w"> </span><span class="k">UNIQUE</span><span class="p">,</span>
+<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="w">  </span><span class="n">draw_number</span><span class="w">   </span><span class="nb">INT</span><span class="p">,</span>
+<a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a><span class="w">  </span><span class="n">numbers</span><span class="w">       </span><span class="nb">INT</span><span class="p">[</span><span class="mi">5</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">           </span><span class="c1">-- sorted, 1–50</span>
+<a id="__codelineno-0-6" name="__codelineno-0-6" href="#__codelineno-0-6"></a><span class="w">  </span><span class="n">lucky_stars</span><span class="w">   </span><span class="nb">INT</span><span class="p">[</span><span class="mi">2</span><span class="p">]</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">           </span><span class="c1">-- sorted, 1–12</span>
+<a id="__codelineno-0-7" name="__codelineno-0-7" href="#__codelineno-0-7"></a><span class="w">  </span><span class="n">jackpot_eur</span><span class="w">   </span><span class="nb">BIGINT</span><span class="p">,</span><span class="w">                    </span><span class="c1">-- null until prize data available</span>
+<a id="__codelineno-0-8" name="__codelineno-0-8" href="#__codelineno-0-8"></a><span class="w">  </span><span class="n">ingested_at</span><span class="w">   </span><span class="n">TIMESTAMPTZ</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">now</span><span class="p">(),</span>
+<a id="__codelineno-0-9" name="__codelineno-0-9" href="#__codelineno-0-9"></a><span class="w">  </span><span class="n">source_url</span><span class="w">    </span><span class="nb">TEXT</span>
+<a id="__codelineno-0-10" name="__codelineno-0-10" href="#__codelineno-0-10"></a><span class="p">)</span>
+</code></pre></div>
+<p><strong><code>prize_tiers</code></strong> — prize breakdown per draw</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-1-1" name="__codelineno-1-1" href="#__codelineno-1-1"></a><span class="n">prize_tiers</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-1-2" name="__codelineno-1-2" href="#__codelineno-1-2"></a><span class="w">  </span><span class="n">id</span><span class="w">          </span><span class="n">BIGSERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-1-3" name="__codelineno-1-3" href="#__codelineno-1-3"></a><span class="w">  </span><span class="n">draw_id</span><span class="w">     </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">draws</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+<a id="__codelineno-1-4" name="__codelineno-1-4" href="#__codelineno-1-4"></a><span class="w">  </span><span class="n">tier</span><span class="w">        </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">           </span><span class="c1">-- 1 (jackpot) to 13</span>
+<a id="__codelineno-1-5" name="__codelineno-1-5" href="#__codelineno-1-5"></a><span class="w">  </span><span class="n">match_desc</span><span class="w">  </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">              </span><span class="c1">-- &quot;5 + 2 Stars&quot;, &quot;3 + 1 Star&quot;, etc.</span>
+<a id="__codelineno-1-6" name="__codelineno-1-6" href="#__codelineno-1-6"></a><span class="w">  </span><span class="n">winners</span><span class="w">     </span><span class="nb">INT</span><span class="p">,</span>
+<a id="__codelineno-1-7" name="__codelineno-1-7" href="#__codelineno-1-7"></a><span class="w">  </span><span class="n">prize_eur</span><span class="w">   </span><span class="nb">BIGINT</span>
+<a id="__codelineno-1-8" name="__codelineno-1-8" href="#__codelineno-1-8"></a><span class="p">)</span>
+</code></pre></div>
+<p><strong><code>statistics</code></strong> — rolling frequency cache (rebuilt after each draw ingestion)</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-2-1" name="__codelineno-2-1" href="#__codelineno-2-1"></a><span class="k">statistics</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-2-2" name="__codelineno-2-2" href="#__codelineno-2-2"></a><span class="w">  </span><span class="n">id</span><span class="w">              </span><span class="n">BIGSERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-2-3" name="__codelineno-2-3" href="#__codelineno-2-3"></a><span class="w">  </span><span class="n">stat_type</span><span class="w">       </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">           </span><span class="c1">-- &#39;main&#39; | &#39;star&#39;</span>
+<a id="__codelineno-2-4" name="__codelineno-2-4" href="#__codelineno-2-4"></a><span class="w">  </span><span class="nb">number</span><span class="w">          </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-2-5" name="__codelineno-2-5" href="#__codelineno-2-5"></a><span class="w">  </span><span class="n">frequency_100</span><span class="w">   </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">       </span><span class="c1">-- count in last 100 draws</span>
+<a id="__codelineno-2-6" name="__codelineno-2-6" href="#__codelineno-2-6"></a><span class="w">  </span><span class="n">frequency_20</span><span class="w">    </span><span class="nb">SMALLINT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">       </span><span class="c1">-- count in last 20 draws</span>
+<a id="__codelineno-2-7" name="__codelineno-2-7" href="#__codelineno-2-7"></a><span class="w">  </span><span class="n">trend_score</span><span class="w">     </span><span class="nb">FLOAT</span><span class="p">,</span><span class="w">                   </span><span class="c1">-- (freq_20/20) / (freq_100/100)</span>
+<a id="__codelineno-2-8" name="__codelineno-2-8" href="#__codelineno-2-8"></a><span class="w">  </span><span class="n">updated_at</span><span class="w">      </span><span class="n">TIMESTAMPTZ</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">now</span><span class="p">(),</span>
+<a id="__codelineno-2-9" name="__codelineno-2-9" href="#__codelineno-2-9"></a><span class="w">  </span><span class="k">UNIQUE</span><span class="p">(</span><span class="n">stat_type</span><span class="p">,</span><span class="w"> </span><span class="nb">number</span><span class="p">)</span>
+<a id="__codelineno-2-10" name="__codelineno-2-10" href="#__codelineno-2-10"></a><span class="p">)</span>
+</code></pre></div>
+<p><strong><code>users</code></strong> — registered app users</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-3-1" name="__codelineno-3-1" href="#__codelineno-3-1"></a><span class="n">users</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-3-2" name="__codelineno-3-2" href="#__codelineno-3-2"></a><span class="w">  </span><span class="n">id</span><span class="w">              </span><span class="n">BIGSERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-3-3" name="__codelineno-3-3" href="#__codelineno-3-3"></a><span class="w">  </span><span class="n">device_id</span><span class="w">       </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">    </span><span class="c1">-- anonymous device token</span>
+<a id="__codelineno-3-4" name="__codelineno-3-4" href="#__codelineno-3-4"></a><span class="w">  </span><span class="n">fcm_token</span><span class="w">       </span><span class="nb">TEXT</span><span class="p">,</span>
+<a id="__codelineno-3-5" name="__codelineno-3-5" href="#__codelineno-3-5"></a><span class="w">  </span><span class="n">apns_token</span><span class="w">      </span><span class="nb">TEXT</span><span class="p">,</span>
+<a id="__codelineno-3-6" name="__codelineno-3-6" href="#__codelineno-3-6"></a><span class="w">  </span><span class="n">locale</span><span class="w">          </span><span class="nb">VARCHAR</span><span class="p">(</span><span class="mi">5</span><span class="p">)</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="s1">&#39;en&#39;</span><span class="p">,</span>
+<a id="__codelineno-3-7" name="__codelineno-3-7" href="#__codelineno-3-7"></a><span class="w">  </span><span class="n">timezone</span><span class="w">        </span><span class="nb">TEXT</span><span class="p">,</span>
+<a id="__codelineno-3-8" name="__codelineno-3-8" href="#__codelineno-3-8"></a><span class="w">  </span><span class="n">created_at</span><span class="w">      </span><span class="n">TIMESTAMPTZ</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">now</span><span class="p">(),</span>
+<a id="__codelineno-3-9" name="__codelineno-3-9" href="#__codelineno-3-9"></a><span class="w">  </span><span class="n">last_active_at</span><span class="w">  </span><span class="n">TIMESTAMPTZ</span>
+<a id="__codelineno-3-10" name="__codelineno-3-10" href="#__codelineno-3-10"></a><span class="p">)</span>
+</code></pre></div>
+<p><strong><code>subscriptions</code></strong> — IAP state per user</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-4-1" name="__codelineno-4-1" href="#__codelineno-4-1"></a><span class="n">subscriptions</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-4-2" name="__codelineno-4-2" href="#__codelineno-4-2"></a><span class="w">  </span><span class="n">id</span><span class="w">                  </span><span class="n">BIGSERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-4-3" name="__codelineno-4-3" href="#__codelineno-4-3"></a><span class="w">  </span><span class="n">user_id</span><span class="w">             </span><span class="nb">BIGINT</span><span class="w"> </span><span class="k">REFERENCES</span><span class="w"> </span><span class="n">users</span><span class="p">(</span><span class="n">id</span><span class="p">),</span>
+<a id="__codelineno-4-4" name="__codelineno-4-4" href="#__codelineno-4-4"></a><span class="w">  </span><span class="n">platform</span><span class="w">            </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">         </span><span class="c1">-- &#39;ios&#39; | &#39;android&#39;</span>
+<a id="__codelineno-4-5" name="__codelineno-4-5" href="#__codelineno-4-5"></a><span class="w">  </span><span class="n">product_id</span><span class="w">          </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">         </span><span class="c1">-- &#39;monthly&#39; | &#39;yearly&#39; | &#39;lifetime&#39;</span>
+<a id="__codelineno-4-6" name="__codelineno-4-6" href="#__codelineno-4-6"></a><span class="w">  </span><span class="n">original_txn_id</span><span class="w">     </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">UNIQUE</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span>
+<a id="__codelineno-4-7" name="__codelineno-4-7" href="#__codelineno-4-7"></a><span class="w">  </span><span class="n">purchase_date</span><span class="w">       </span><span class="n">TIMESTAMPTZ</span><span class="p">,</span>
+<a id="__codelineno-4-8" name="__codelineno-4-8" href="#__codelineno-4-8"></a><span class="w">  </span><span class="n">expires_date</span><span class="w">        </span><span class="n">TIMESTAMPTZ</span><span class="p">,</span><span class="w">           </span><span class="c1">-- null for lifetime</span>
+<a id="__codelineno-4-9" name="__codelineno-4-9" href="#__codelineno-4-9"></a><span class="w">  </span><span class="n">is_active</span><span class="w">           </span><span class="nb">BOOLEAN</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="k">true</span><span class="p">,</span>
+<a id="__codelineno-4-10" name="__codelineno-4-10" href="#__codelineno-4-10"></a><span class="w">  </span><span class="n">raw_receipt</span><span class="w">         </span><span class="n">JSONB</span><span class="p">,</span>
+<a id="__codelineno-4-11" name="__codelineno-4-11" href="#__codelineno-4-11"></a><span class="w">  </span><span class="n">updated_at</span><span class="w">          </span><span class="n">TIMESTAMPTZ</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">now</span><span class="p">()</span>
+<a id="__codelineno-4-12" name="__codelineno-4-12" href="#__codelineno-4-12"></a><span class="p">)</span>
+</code></pre></div>
+<p><strong><code>scraper_runs</code></strong> — audit log for the automated scraper</p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-5-1" name="__codelineno-5-1" href="#__codelineno-5-1"></a><span class="n">scraper_runs</span><span class="w"> </span><span class="p">(</span>
+<a id="__codelineno-5-2" name="__codelineno-5-2" href="#__codelineno-5-2"></a><span class="w">  </span><span class="n">id</span><span class="w">          </span><span class="n">BIGSERIAL</span><span class="w"> </span><span class="k">PRIMARY</span><span class="w"> </span><span class="k">KEY</span><span class="p">,</span>
+<a id="__codelineno-5-3" name="__codelineno-5-3" href="#__codelineno-5-3"></a><span class="w">  </span><span class="n">run_at</span><span class="w">      </span><span class="n">TIMESTAMPTZ</span><span class="w"> </span><span class="k">DEFAULT</span><span class="w"> </span><span class="n">now</span><span class="p">(),</span>
+<a id="__codelineno-5-4" name="__codelineno-5-4" href="#__codelineno-5-4"></a><span class="w">  </span><span class="n">status</span><span class="w">      </span><span class="nb">TEXT</span><span class="w"> </span><span class="k">NOT</span><span class="w"> </span><span class="k">NULL</span><span class="p">,</span><span class="w">               </span><span class="c1">-- &#39;success&#39; | &#39;failed&#39; | &#39;no_new_draw&#39;</span>
+<a id="__codelineno-5-5" name="__codelineno-5-5" href="#__codelineno-5-5"></a><span class="w">  </span><span class="n">draw_date</span><span class="w">   </span><span class="nb">DATE</span><span class="p">,</span><span class="w">                        </span><span class="c1">-- null if no draw found</span>
+<a id="__codelineno-5-6" name="__codelineno-5-6" href="#__codelineno-5-6"></a><span class="w">  </span><span class="n">error_msg</span><span class="w">   </span><span class="nb">TEXT</span><span class="p">,</span>
+<a id="__codelineno-5-7" name="__codelineno-5-7" href="#__codelineno-5-7"></a><span class="w">  </span><span class="n">duration_ms</span><span class="w"> </span><span class="nb">INT</span>
+<a id="__codelineno-5-8" name="__codelineno-5-8" href="#__codelineno-5-8"></a><span class="p">)</span>
+</code></pre></div>
+<h3 id="indexes">Indexes</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-6-1" name="__codelineno-6-1" href="#__codelineno-6-1"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">draws_draw_date_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">draws</span><span class="p">(</span><span class="n">draw_date</span><span class="w"> </span><span class="k">DESC</span><span class="p">);</span>
+<a id="__codelineno-6-2" name="__codelineno-6-2" href="#__codelineno-6-2"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">prize_tiers_draw_id_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">prize_tiers</span><span class="p">(</span><span class="n">draw_id</span><span class="p">);</span>
+<a id="__codelineno-6-3" name="__codelineno-6-3" href="#__codelineno-6-3"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">statistics_type_number_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="k">statistics</span><span class="p">(</span><span class="n">stat_type</span><span class="p">,</span><span class="w"> </span><span class="nb">number</span><span class="p">);</span>
+<a id="__codelineno-6-4" name="__codelineno-6-4" href="#__codelineno-6-4"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">subscriptions_user_id_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">subscriptions</span><span class="p">(</span><span class="n">user_id</span><span class="p">);</span>
+<a id="__codelineno-6-5" name="__codelineno-6-5" href="#__codelineno-6-5"></a><span class="k">CREATE</span><span class="w"> </span><span class="k">INDEX</span><span class="w"> </span><span class="n">subscriptions_original_txn_idx</span><span class="w"> </span><span class="k">ON</span><span class="w"> </span><span class="n">subscriptions</span><span class="p">(</span><span class="n">original_txn_id</span><span class="p">);</span>
+</code></pre></div>
+<h3 id="redis-keys-cache-rate-limiting">Redis Keys (Cache &amp; Rate Limiting)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Key Pattern</th>
+<th style="text-align: left;">TTL</th>
+<th style="text-align: left;">Purpose</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>draw:latest</code></td>
+<td style="text-align: left;">Until next draw</td>
+<td style="text-align: left;">Latest draw JSON</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>statistics:main</code></td>
+<td style="text-align: left;">Until next draw</td>
+<td style="text-align: left;">Main number frequency array</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>statistics:stars</code></td>
+<td style="text-align: left;">Until next draw</td>
+<td style="text-align: left;">Lucky Star frequency array</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>user:{id}:free_picks</code></td>
+<td style="text-align: left;">Until midnight (user TZ)</td>
+<td style="text-align: left;">Daily free pick counter</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>push:queue:{draw_date}</code></td>
+<td style="text-align: left;">24h</td>
+<td style="text-align: left;">Push batch job deduplication</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="2-rest-api-endpoints">2. REST API Endpoints</h2>
+<p>All endpoints are prefixed <code>/api/v1</code>. Auth-required endpoints validate <code>Authorization: Bearer &lt;token&gt;</code>.</p>
+<h3 id="public-no-auth">Public (no auth)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Path</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>GET</code></td>
+<td style="text-align: left;"><code>/public/draws/latest</code></td>
+<td style="text-align: left;">Latest EuroMillions draw + prize breakdown</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GET</code></td>
+<td style="text-align: left;"><code>/public/draws</code></td>
+<td style="text-align: left;">Draw history list (paginated, last 100)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GET</code></td>
+<td style="text-align: left;"><code>/public/draws/{id}</code></td>
+<td style="text-align: left;">Draw detail + full prize breakdown</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GET</code></td>
+<td style="text-align: left;"><code>/public/statistics</code></td>
+<td style="text-align: left;">Number and Lucky Star frequency data</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>POST</code></td>
+<td style="text-align: left;"><code>/public/auth/register</code></td>
+<td style="text-align: left;">Anonymous device registration, returns JWT</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>POST</code></td>
+<td style="text-align: left;"><code>/public/auth/refresh</code></td>
+<td style="text-align: left;">Token refresh</td>
+</tr>
+</tbody>
+</table>
+<h3 id="authenticated-usr">Authenticated (<code>/usr/*</code>)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Path</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>GET</code></td>
+<td style="text-align: left;"><code>/usr/me</code></td>
+<td style="text-align: left;">Current user profile + subscription status</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PUT</code></td>
+<td style="text-align: left;"><code>/usr/me/tokens</code></td>
+<td style="text-align: left;">Update FCM / APNs push token</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GET</code></td>
+<td style="text-align: left;"><code>/usr/me/free-picks</code></td>
+<td style="text-align: left;">Today's remaining free pick count</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>POST</code></td>
+<td style="text-align: left;"><code>/usr/me/free-picks/consume</code></td>
+<td style="text-align: left;">Decrement free pick counter (1 of 3)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GET</code></td>
+<td style="text-align: left;"><code>/usr/picks</code></td>
+<td style="text-align: left;">Active pick set (combinations list)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>POST</code></td>
+<td style="text-align: left;"><code>/usr/picks/combinations</code></td>
+<td style="text-align: left;">Add combination to active set</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>DELETE</code></td>
+<td style="text-align: left;"><code>/usr/picks/combinations/{id}</code></td>
+<td style="text-align: left;">Remove combination</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>POST</code></td>
+<td style="text-align: left;"><code>/usr/picks/sets</code></td>
+<td style="text-align: left;">Archive active set, start new set</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GET</code></td>
+<td style="text-align: left;"><code>/usr/picks/sets</code></td>
+<td style="text-align: left;">All archived sets</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>GET</code></td>
+<td style="text-align: left;"><code>/usr/notification-setting</code></td>
+<td style="text-align: left;">Current notification preferences</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>PUT</code></td>
+<td style="text-align: left;"><code>/usr/notification-setting</code></td>
+<td style="text-align: left;">Update notification toggles</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>POST</code></td>
+<td style="text-align: left;"><code>/usr/iap/validate/ios</code></td>
+<td style="text-align: left;">Validate StoreKit 2 JWS transaction</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>POST</code></td>
+<td style="text-align: left;"><code>/usr/iap/validate/android</code></td>
+<td style="text-align: left;">Validate Play Billing purchase token</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>POST</code></td>
+<td style="text-align: left;"><code>/usr/iap/restore</code></td>
+<td style="text-align: left;">Re-check all prior purchases for user</td>
+</tr>
+</tbody>
+</table>
+<h3 id="webhook">Webhook</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Method</th>
+<th style="text-align: left;">Path</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><code>POST</code></td>
+<td style="text-align: left;"><code>/webhook/apple/notifications</code></td>
+<td style="text-align: left;">Apple Server Notifications (renewal, expiry, refund)</td>
+</tr>
+<tr>
+<td style="text-align: left;"><code>POST</code></td>
+<td style="text-align: left;"><code>/webhook/google/notifications</code></td>
+<td style="text-align: left;">Google Play Real-Time Developer Notifications</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="3-automated-draw-scraper">3. Automated Draw Scraper</h2>
+<p>Runs on a cron — <strong>Tuesday and Friday at 20:45 CET</strong> (shortly after draw close, results typically published 21:00–21:30 CET).</p>
+<p><strong>Cron schedule:</strong>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-7-1" name="__codelineno-7-1" href="#__codelineno-7-1"></a>45 20 * * 2,5   /usr/local/bin/luckypick-scraper
+</code></pre></div></p>
+<p><strong>Scraper logic:</strong></p>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-8-1" name="__codelineno-8-1" href="#__codelineno-8-1"></a>1. Fetch official results from Belgian National Lottery or EuroMillions API
+<a id="__codelineno-8-2" name="__codelineno-8-2" href="#__codelineno-8-2"></a>2. Parse draw date, 5 main numbers, 2 Lucky Stars
+<a id="__codelineno-8-3" name="__codelineno-8-3" href="#__codelineno-8-3"></a>3. Check draws table — skip if draw_date already exists
+<a id="__codelineno-8-4" name="__codelineno-8-4" href="#__codelineno-8-4"></a>4. INSERT draw record (numbers + lucky_stars; jackpot_eur may be null initially)
+<a id="__codelineno-8-5" name="__codelineno-8-5" href="#__codelineno-8-5"></a>5. Attempt to fetch prize tier data; INSERT prize_tiers if available
+<a id="__codelineno-8-6" name="__codelineno-8-6" href="#__codelineno-8-6"></a>6. Rebuild statistics table:
+<a id="__codelineno-8-7" name="__codelineno-8-7" href="#__codelineno-8-7"></a>     a. Pull last 100 draw dates
+<a id="__codelineno-8-8" name="__codelineno-8-8" href="#__codelineno-8-8"></a>     b. Count frequency of each number (1–50) and star (1–12)
+<a id="__codelineno-8-9" name="__codelineno-8-9" href="#__codelineno-8-9"></a>     c. Count frequency in last 20 draws
+<a id="__codelineno-8-10" name="__codelineno-8-10" href="#__codelineno-8-10"></a>     d. Compute trend_score per number
+<a id="__codelineno-8-11" name="__codelineno-8-11" href="#__codelineno-8-11"></a>     e. UPSERT statistics rows
+<a id="__codelineno-8-12" name="__codelineno-8-12" href="#__codelineno-8-12"></a>7. Invalidate Redis keys: draw:latest, statistics:main, statistics:stars
+<a id="__codelineno-8-13" name="__codelineno-8-13" href="#__codelineno-8-13"></a>8. Dispatch push notifications (see §4)
+<a id="__codelineno-8-14" name="__codelineno-8-14" href="#__codelineno-8-14"></a>9. Log result to scraper_runs
+</code></pre></div>
+<p><strong>Error handling:</strong></p>
+<ul>
+<li>Retry up to 3 times with 5-minute backoff if HTTP fetch fails</li>
+<li>If prize data unavailable after 3 retries, store draw without prizes; a second cron at 00:00 CET re-attempts prize fetch only</li>
+<li>Alert (email / Slack) on 3 consecutive <code>scraper_runs.status = 'failed'</code></li>
+</ul>
+<hr />
+<h2 id="4-push-notification-service">4. Push Notification Service</h2>
+<p>Triggered by the scraper after a successful draw ingestion.</p>
+<h3 id="notification-types">Notification Types</h3>
+<p><strong><code>results_available</code></strong> (every draw, Tue/Fri ~21:00 CET)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-9-1" name="__codelineno-9-1" href="#__codelineno-9-1"></a><span class="p">{</span>
+<a id="__codelineno-9-2" name="__codelineno-9-2" href="#__codelineno-9-2"></a><span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EuroMillions Results Are In!&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-3" name="__codelineno-9-3" href="#__codelineno-9-3"></a><span class="w">  </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Tap to see the winning numbers.&quot;</span><span class="p">,</span>
+<a id="__codelineno-9-4" name="__codelineno-9-4" href="#__codelineno-9-4"></a><span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;results_available&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;draw_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-9-5" name="__codelineno-9-5" href="#__codelineno-9-5"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong><code>draw_reminder</code></strong> (Tue/Fri at 18:00 CET — 2h before draw close)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-10-1" name="__codelineno-10-1" href="#__codelineno-10-1"></a><span class="p">{</span>
+<a id="__codelineno-10-2" name="__codelineno-10-2" href="#__codelineno-10-2"></a><span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;EuroMillions Draw Tonight&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-3" name="__codelineno-10-3" href="#__codelineno-10-3"></a><span class="w">  </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Have your lucky numbers ready.&quot;</span><span class="p">,</span>
+<a id="__codelineno-10-4" name="__codelineno-10-4" href="#__codelineno-10-4"></a><span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;draw_reminder&quot;</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-10-5" name="__codelineno-10-5" href="#__codelineno-10-5"></a><span class="p">}</span>
+</code></pre></div></p>
+<p><strong><code>jackpot_won</code></strong> (only when Tier 1 has ≥1 winner)
+<div class="highlight"><pre><span></span><code><a id="__codelineno-11-1" name="__codelineno-11-1" href="#__codelineno-11-1"></a><span class="p">{</span>
+<a id="__codelineno-11-2" name="__codelineno-11-2" href="#__codelineno-11-2"></a><span class="w">  </span><span class="nt">&quot;title&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;Someone Won the Jackpot!&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-3" name="__codelineno-11-3" href="#__codelineno-11-3"></a><span class="w">  </span><span class="nt">&quot;body&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;See the results and winners.&quot;</span><span class="p">,</span>
+<a id="__codelineno-11-4" name="__codelineno-11-4" href="#__codelineno-11-4"></a><span class="w">  </span><span class="nt">&quot;data&quot;</span><span class="p">:</span><span class="w"> </span><span class="p">{</span><span class="w"> </span><span class="nt">&quot;type&quot;</span><span class="p">:</span><span class="w"> </span><span class="s2">&quot;jackpot_won&quot;</span><span class="p">,</span><span class="w"> </span><span class="nt">&quot;draw_id&quot;</span><span class="p">:</span><span class="w"> </span><span class="mi">1234</span><span class="w"> </span><span class="p">}</span>
+<a id="__codelineno-11-5" name="__codelineno-11-5" href="#__codelineno-11-5"></a><span class="p">}</span>
+</code></pre></div></p>
+<h3 id="dispatch-logic">Dispatch Logic</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-12-1" name="__codelineno-12-1" href="#__codelineno-12-1"></a>For each notification type that fires:
+<a id="__codelineno-12-2" name="__codelineno-12-2" href="#__codelineno-12-2"></a>  1. Query users WHERE notification_setting_{type} = true
+<a id="__codelineno-12-3" name="__codelineno-12-3" href="#__codelineno-12-3"></a>  2. Split by platform (ios / android)
+<a id="__codelineno-12-4" name="__codelineno-12-4" href="#__codelineno-12-4"></a>  3. iOS: FCM HTTP v1 → APNs gateway  OR  APNs direct
+<a id="__codelineno-12-5" name="__codelineno-12-5" href="#__codelineno-12-5"></a>  4. Android: FCM HTTP v1 → Firebase → device
+<a id="__codelineno-12-6" name="__codelineno-12-6" href="#__codelineno-12-6"></a>  5. Handle invalid token responses → remove stale tokens from users table
+<a id="__codelineno-12-7" name="__codelineno-12-7" href="#__codelineno-12-7"></a>  6. Log batch result (sent / failed / invalid token)
+</code></pre></div>
+<p><strong>Batch size:</strong> send in batches of 500 tokens per FCM request to stay within rate limits.</p>
+<hr />
+<h2 id="5-iap-receipt-validation">5. IAP Receipt Validation</h2>
+<h3 id="ios-storekit-2-jws">iOS — StoreKit 2 (JWS)</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-13-1" name="__codelineno-13-1" href="#__codelineno-13-1"></a>POST /usr/iap/validate/ios
+<a id="__codelineno-13-2" name="__codelineno-13-2" href="#__codelineno-13-2"></a>Body: { &quot;transaction_jws&quot;: &quot;&lt;signed_transaction&gt;&quot; }
+<a id="__codelineno-13-3" name="__codelineno-13-3" href="#__codelineno-13-3"></a>
+<a id="__codelineno-13-4" name="__codelineno-13-4" href="#__codelineno-13-4"></a>1. Decode JWS header → fetch Apple root certificate
+<a id="__codelineno-13-5" name="__codelineno-13-5" href="#__codelineno-13-5"></a>2. Verify signature chain
+<a id="__codelineno-13-6" name="__codelineno-13-6" href="#__codelineno-13-6"></a>3. Extract productId, originalTransactionId, purchaseDate, expiresDate
+<a id="__codelineno-13-7" name="__codelineno-13-7" href="#__codelineno-13-7"></a>4. UPSERT subscriptions row
+<a id="__codelineno-13-8" name="__codelineno-13-8" href="#__codelineno-13-8"></a>5. Update user subscription status
+<a id="__codelineno-13-9" name="__codelineno-13-9" href="#__codelineno-13-9"></a>6. Return: { &quot;is_premium&quot;: true, &quot;expires_at&quot;: &quot;...&quot; }
+</code></pre></div>
+<p>Apple Server Notifications webhook handles renewals, cancellations, refunds automatically.</p>
+<h3 id="android-google-play-billing-v6">Android — Google Play Billing v6</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-14-1" name="__codelineno-14-1" href="#__codelineno-14-1"></a>POST /usr/iap/validate/android
+<a id="__codelineno-14-2" name="__codelineno-14-2" href="#__codelineno-14-2"></a>Body: { &quot;purchase_token&quot;: &quot;...&quot;, &quot;product_id&quot;: &quot;...&quot; }
+<a id="__codelineno-14-3" name="__codelineno-14-3" href="#__codelineno-14-3"></a>
+<a id="__codelineno-14-4" name="__codelineno-14-4" href="#__codelineno-14-4"></a>1. Call Google Play Developer API:
+<a id="__codelineno-14-5" name="__codelineno-14-5" href="#__codelineno-14-5"></a>   GET purchases.subscriptions.get or purchases.products.get
+<a id="__codelineno-14-6" name="__codelineno-14-6" href="#__codelineno-14-6"></a>2. Verify purchaseState = 0 (Purchased)
+<a id="__codelineno-14-7" name="__codelineno-14-7" href="#__codelineno-14-7"></a>3. UPSERT subscriptions row
+<a id="__codelineno-14-8" name="__codelineno-14-8" href="#__codelineno-14-8"></a>4. Return: { &quot;is_premium&quot;: true, &quot;expires_at&quot;: &quot;...&quot; }
+</code></pre></div>
+<p>Google Play Real-Time Developer Notifications (Pub/Sub webhook) handles renewals and cancellations.</p>
+<hr />
+<h2 id="6-admin-panel-internal">6. Admin Panel (Internal)</h2>
+<p>Lightweight internal dashboard — not user-facing.</p>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Feature</th>
+<th style="text-align: left;">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Draw history table</td>
+<td style="text-align: left;">All draws, editable jackpot / prize data manually if scraper misses</td>
+</tr>
+<tr>
+<td style="text-align: left;">Manual draw import</td>
+<td style="text-align: left;">CSV or form to insert a draw if scraper fails</td>
+</tr>
+<tr>
+<td style="text-align: left;">Scraper run log</td>
+<td style="text-align: left;">Status, duration, error messages per run</td>
+</tr>
+<tr>
+<td style="text-align: left;">User count</td>
+<td style="text-align: left;">Total registered, active (last 30 days), premium</td>
+</tr>
+<tr>
+<td style="text-align: left;">Push log</td>
+<td style="text-align: left;">Sent / failed / invalid token counts per notification batch</td>
+</tr>
+<tr>
+<td style="text-align: left;">Subscription lookup</td>
+<td style="text-align: left;">Search by original_txn_id or user_id</td>
+</tr>
+<tr>
+<td style="text-align: left;">Statistics preview</td>
+<td style="text-align: left;">Current hot / cold / trending numbers visualised</td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="7-infrastructure-devops">7. Infrastructure &amp; DevOps</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Item</th>
+<th style="text-align: left;">Choice</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Server</td>
+<td style="text-align: left;">VPS (e.g. Hetzner, DigitalOcean) or managed PaaS (Railway, Render)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Database</td>
+<td style="text-align: left;">PostgreSQL 15+ (managed or self-hosted)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cache</td>
+<td style="text-align: left;">Redis 7+</td>
+</tr>
+<tr>
+<td style="text-align: left;">Language / Framework</td>
+<td style="text-align: left;">Developer's choice — Go, Node.js, or Python (FastAPI) recommended for async performance</td>
+</tr>
+<tr>
+<td style="text-align: left;">HTTPS</td>
+<td style="text-align: left;">Let's Encrypt / Caddy automatic TLS</td>
+</tr>
+<tr>
+<td style="text-align: left;">Cron</td>
+<td style="text-align: left;">System cron or cron-in-app scheduler</td>
+</tr>
+<tr>
+<td style="text-align: left;">Logging</td>
+<td style="text-align: left;">Structured JSON logs (stdout), rotated or shipped to log aggregator</td>
+</tr>
+<tr>
+<td style="text-align: left;">Monitoring</td>
+<td style="text-align: left;">Uptime check on <code>/health</code> endpoint; alert on scraper failure</td>
+</tr>
+<tr>
+<td style="text-align: left;">Backups</td>
+<td style="text-align: left;">Daily <code>pg_dump</code> to object storage (S3-compatible)</td>
+</tr>
+<tr>
+<td style="text-align: left;">Secrets</td>
+<td style="text-align: left;">Environment variables — never in code</td>
+</tr>
+</tbody>
+</table>
+<h3 id="required-environment-variables">Required Environment Variables</h3>
+<div class="highlight"><pre><span></span><code><a id="__codelineno-15-1" name="__codelineno-15-1" href="#__codelineno-15-1"></a>DATABASE_URL
+<a id="__codelineno-15-2" name="__codelineno-15-2" href="#__codelineno-15-2"></a>REDIS_URL
+<a id="__codelineno-15-3" name="__codelineno-15-3" href="#__codelineno-15-3"></a>JWT_SECRET
+<a id="__codelineno-15-4" name="__codelineno-15-4" href="#__codelineno-15-4"></a>APPLE_ROOT_CERT_PATH
+<a id="__codelineno-15-5" name="__codelineno-15-5" href="#__codelineno-15-5"></a>APPLE_BUNDLE_ID
+<a id="__codelineno-15-6" name="__codelineno-15-6" href="#__codelineno-15-6"></a>GOOGLE_PLAY_SERVICE_ACCOUNT_JSON
+<a id="__codelineno-15-7" name="__codelineno-15-7" href="#__codelineno-15-7"></a>FCM_SERVER_KEY
+<a id="__codelineno-15-8" name="__codelineno-15-8" href="#__codelineno-15-8"></a>APNS_KEY_ID
+<a id="__codelineno-15-9" name="__codelineno-15-9" href="#__codelineno-15-9"></a>APNS_TEAM_ID
+<a id="__codelineno-15-10" name="__codelineno-15-10" href="#__codelineno-15-10"></a>APNS_AUTH_KEY_PATH
+<a id="__codelineno-15-11" name="__codelineno-15-11" href="#__codelineno-15-11"></a>ADMIN_USERNAME
+<a id="__codelineno-15-12" name="__codelineno-15-12" href="#__codelineno-15-12"></a>ADMIN_PASSWORD_HASH
+</code></pre></div>
+<hr />
+<h2 id="8-security-checklist">8. Security Checklist</h2>
+<ul class="task-list">
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> All <code>/usr/*</code> routes validate JWT expiry and signature before processing</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> IAP validation always calls Apple / Google — never trust client-side receipts alone</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Rate limit free pick consumption endpoint (max 3 per user per day, enforced server-side)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Rate limit auth endpoints (register / refresh) to prevent token farming</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Scraper source URL is hardcoded — not user-supplied (no SSRF surface)</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Admin panel is IP-restricted or behind VPN — not publicly routable</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> Push tokens stored encrypted at rest</li>
+<li class="task-list-item"><label class="task-list-control"><input type="checkbox" disabled/><span class="task-list-indicator"></span></label> <code>pg_dump</code> backups tested monthly for restore integrity</li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../graphic-design/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Graphic Design">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Graphic Design
+              </div>
+            </div>
+          </a>
+        
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
