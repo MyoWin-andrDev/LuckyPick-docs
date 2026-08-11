@@ -1,0 +1,2324 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete product, architecture, and technical documentation for the LuckyPick EuroMillions companion app.">
+      
+      
+        <meta name="author" content="LuckyPick Team">
+      
+      
+        <link rel="canonical" href="https://myowin-andrdev.github.io/LuckyPick-docs/workload/uiux/">
+      
+      
+        <link rel="prev" href="../../development-launch/">
+      
+      
+        <link rel="next" href="../graphic-design/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>UI/UX Design - LuckyPick EuroMillions Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("../..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#uiux-workload" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href="../.." title="LuckyPick EuroMillions Documentation" class="md-header__button md-logo" aria-label="LuckyPick EuroMillions Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LuckyPick EuroMillions Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UI/UX Design
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../.." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Architecture
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../app-flow/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Application Flow
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../uml-diagrams/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  UML Diagrams
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../system-design/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  System Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../../features/overview/" class="md-tabs__link">
+          
+  
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../backend-admin/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Backend & Admin
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../website/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Website & Deep Links
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../../development-launch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Development & Launch
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    
+    
+      <li class="md-tabs__item md-tabs__item--active">
+        <a href="./" class="md-tabs__link">
+          
+  
+  
+  Workload
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href="../.." title="LuckyPick EuroMillions Documentation" class="md-nav__button md-logo" aria-label="LuckyPick EuroMillions Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LuckyPick EuroMillions Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../.." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../app-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../uml-diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UML Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/lucky-modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lucky Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/my-picks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    My Picks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/results-history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results & History
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/premium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Premium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../features/social-sharing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Social Sharing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../backend-admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend & Admin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../website/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Website & Deep Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../../development-launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development & Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_10" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_10" id="__nav_10_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workload
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_10_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_10">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Workload
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI/UX Design
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UI/UX Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scope-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-onboarding-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Onboarding &amp; Launch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Onboarding &amp; Launch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splash-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Splash Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#welcome-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-home-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Home Screen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Home Screen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generated-numbers-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generated Numbers Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#free-limit-reached-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free Limit Reached State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-lucky-modes-screens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Lucky Modes Screens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Lucky Modes Screens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lucky-modes-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lucky Modes Browser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode-input-screens-one-per-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Input Screens (one per mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode-result-screen-shared-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Result Screen (shared layout)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-my-picks-saved-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. My Picks &amp; Saved Sets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. My Picks &amp; Saved Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#my-picks-screen-active-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My Picks Screen (Active Set)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empty-my-picks-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Empty My Picks State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saved-sets-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saved Sets Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-results-draw-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Results &amp; Draw History
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Results &amp; Draw History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#results-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-history-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draw History Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-detail-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draw Detail Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-statistics-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Statistics Screen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-notifications-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Notifications Settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-premium-screens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Premium Screens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Premium Screens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#premium-screen-central-all-entry-points-lead-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Premium Screen (Central — all entry points lead here)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-purchase-confirmation-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-Purchase Confirmation Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-social-sharing-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Social Sharing Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-settings-more-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Settings / More Screen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Settings / More Screen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#about-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-empty-error-states-ux-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Empty &amp; Error States (UX Required)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../graphic-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Graphic Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#scope-summary" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Scope Summary
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#1-onboarding-launch" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Onboarding &amp; Launch
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="1. Onboarding &amp; Launch">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#splash-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Splash Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#welcome-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Welcome Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-home-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Home Screen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="2. Home Screen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#main-home" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Main Home
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#generated-numbers-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Generated Numbers Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#free-limit-reached-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Free Limit Reached State
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-lucky-modes-screens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Lucky Modes Screens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="3. Lucky Modes Screens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#lucky-modes-browser" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Lucky Modes Browser
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode-input-screens-one-per-mode" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Input Screens (one per mode)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mode-result-screen-shared-layout" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mode Result Screen (shared layout)
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-my-picks-saved-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. My Picks &amp; Saved Sets
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="4. My Picks &amp; Saved Sets">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#my-picks-screen-active-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        My Picks Screen (Active Set)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#empty-my-picks-state" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Empty My Picks State
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#saved-sets-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saved Sets Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-results-draw-history" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Results &amp; Draw History
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="5. Results &amp; Draw History">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#results-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Results Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-history-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draw History Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#draw-detail-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Draw Detail Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-statistics-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. Statistics Screen
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-notifications-settings" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Notifications Settings
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-premium-screens" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Premium Screens
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="8. Premium Screens">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#premium-screen-central-all-entry-points-lead-here" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Premium Screen (Central — all entry points lead here)
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#post-purchase-confirmation-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Post-Purchase Confirmation Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-social-sharing-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Social Sharing Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-settings-more-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Settings / More Screen
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="10. Settings / More Screen">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#about-screen" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        About Screen
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#11-empty-error-states-ux-required" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        11. Empty &amp; Error States (UX Required)
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="uiux-workload">UI/UX Workload</h1>
+<p>Complete breakdown of all UI/UX design tasks required for LuckyPick EuroMillions, based on the 11-document specification.</p>
+<hr />
+<h2 id="scope-summary">Scope Summary</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Category</th>
+<th style="text-align: center;">Screens / Deliverables</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Onboarding &amp; Launch</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Home &amp; Generation</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Lucky Modes</td>
+<td style="text-align: center;">12</td>
+</tr>
+<tr>
+<td style="text-align: left;">My Picks &amp; Saved Sets</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Results &amp; Draw History</td>
+<td style="text-align: center;">3</td>
+</tr>
+<tr>
+<td style="text-align: left;">Statistics</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Notifications</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Premium &amp; IAP</td>
+<td style="text-align: center;">2</td>
+</tr>
+<tr>
+<td style="text-align: left;">Social Sharing</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Settings / More</td>
+<td style="text-align: center;">1</td>
+</tr>
+<tr>
+<td style="text-align: left;">Empty &amp; Error States</td>
+<td style="text-align: center;">~10</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Total</strong></td>
+<td style="text-align: center;"><strong>~39 screens</strong></td>
+</tr>
+</tbody>
+</table>
+<hr />
+<h2 id="1-onboarding-launch">1. Onboarding &amp; Launch</h2>
+<h3 id="splash-screen">Splash Screen</h3>
+<ul>
+<li>Short branded splash (~1 second)</li>
+<li>LuckyPick logo centred on dark navy background</li>
+<li>No interaction — auto-advances to Welcome</li>
+</ul>
+<h3 id="welcome-screen">Welcome Screen</h3>
+<ul>
+<li>Single screen — no multi-step onboarding</li>
+<li>Clear <strong>GET STARTED</strong> primary button</li>
+<li>Language auto-detection indicator</li>
+<li>Legal disclaimer at the bottom (small, readable):<br />
+<em>"LuckyPick is an independent application and is not affiliated with EuroMillions or any official lottery operator."</em></li>
+<li>Discreet notification permission pre-prompt (optional, before OS dialog)</li>
+</ul>
+<hr />
+<h2 id="2-home-screen">2. Home Screen</h2>
+<h3 id="main-home">Main Home</h3>
+<ul>
+<li><strong>GENERATE MY NUMBERS</strong> primary action button (prominent, aurora/gold)</li>
+<li>Free pick counter visible: <em>"3 free picks remaining today"</em></li>
+<li>Horizontal scroll preview of Lucky Modes (Birthday · Horoscope · Pet · Family)</li>
+<li><strong>View All Lucky Modes →</strong> link</li>
+<li><strong>Discover Premium</strong> section (tasteful, never aggressive)</li>
+<li>No separate jackpot amount display — results are in the Results tab</li>
+</ul>
+<h3 id="generated-numbers-screen">Generated Numbers Screen</h3>
+<ul>
+<li>1–1.5 second reveal animation</li>
+<li>5 main number balls + 2 Lucky Stars displayed</li>
+<li>Lucky Mode badge (e.g. <em>"Horoscope Mode — Leo"</em>)</li>
+<li>Three actions below: <strong>Save</strong> · <strong>Generate Again</strong> · <strong>Share</strong></li>
+</ul>
+<h3 id="free-limit-reached-state">Free Limit Reached State</h3>
+<ul>
+<li>Friendly message: <em>"You've used your 3 free Lucky Picks for today. Come back tomorrow or unlock Premium."</em></li>
+<li><strong>UNLOCK PREMIUM</strong> CTA</li>
+<li>No negative / punishing tone</li>
+</ul>
+<hr />
+<h2 id="3-lucky-modes-screens">3. Lucky Modes Screens</h2>
+<h3 id="lucky-modes-browser">Lucky Modes Browser</h3>
+<ul>
+<li>Grid or list of all 10 Premium Modes + Quick Pick</li>
+<li>Each mode has its own icon and a <strong>short one-line description</strong> (revealed on tap, not always visible)</li>
+<li>Premium modes show a gold <strong>PREMIUM</strong> label — no large padlock icons</li>
+<li>Free users can tap any premium mode and read the description before seeing the upgrade prompt</li>
+</ul>
+<h3 id="mode-input-screens-one-per-mode">Mode Input Screens (one per mode)</h3>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Mode</th>
+<th style="text-align: left;">Input Fields</th>
+<th style="text-align: left;">UX Notes</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;"><strong>Birthday Mode</strong></td>
+<td style="text-align: left;">Name/Nickname (optional), Date of Birth (DD/MM/YYYY)</td>
+<td style="text-align: left;">Date picker; must transform internally — not raw day/month</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Horoscope Mode</strong></td>
+<td style="text-align: left;">Day + Month only (no year)</td>
+<td style="text-align: left;">Auto-displays detected zodiac sign</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Pet Mode</strong></td>
+<td style="text-align: left;">Pet Name, Animal Type (7 options)</td>
+<td style="text-align: left;">Animal type as tappable pill buttons; <strong>CHANGE PET</strong> option</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Family Mode</strong></td>
+<td style="text-align: left;">Relationship selector + Name + DOB per member</td>
+<td style="text-align: left;"><strong>+ADD FAMILY MEMBER</strong> button; relationship dropdown with "Other → specify" field; <strong>EDIT FAMILY</strong> / <strong>START NEW FAMILY</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lucky Color Mode</strong></td>
+<td style="text-align: left;">10 circular colour buttons (identical size/shape)</td>
+<td style="text-align: left;"><strong>SURPRISE ME</strong> button; selected circle gets subtle gold outline; colour must NOT change generated ball colours</td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Lucky Number Mode</strong></td>
+<td style="text-align: left;">1–3 numbers (1–50)</td>
+<td style="text-align: left;">Number input with validation; selected numbers shown as chips; <strong>CHANGE LUCKY NUMBERS</strong></td>
+</tr>
+<tr>
+<td style="text-align: left;"><strong>Hot / Cold / Trending / Smart Mix</strong></td>
+<td style="text-align: left;">No personal input</td>
+<td style="text-align: left;">Stat-mode description only; <strong>GENERATE</strong> button</td>
+</tr>
+</tbody>
+</table>
+<h3 id="mode-result-screen-shared-layout">Mode Result Screen (shared layout)</h3>
+<ul>
+<li>Shows the 5+2 combination result</li>
+<li>Lucky Mode + personal label (e.g. <em>"Pet Mode – Charlie"</em>)</li>
+<li><strong>ADD TO MY PICKS</strong> · <strong>GENERATE ANOTHER</strong> · <strong>CHOOSE ANOTHER MODE</strong> · <strong>CHANGE DETAILS</strong> · <strong>SHARE</strong></li>
+<li>Counter shows current My Picks total</li>
+</ul>
+<hr />
+<h2 id="4-my-picks-saved-sets">4. My Picks &amp; Saved Sets</h2>
+<h3 id="my-picks-screen-active-set">My Picks Screen (Active Set)</h3>
+<ul>
+<li>Header: <strong>MY PICKS</strong> + combination count (e.g. <em>"6 combinations"</em>)</li>
+<li>Each combination shows: mode label · 5 main numbers · 2 Lucky Stars</li>
+<li>Per-item <strong>•••</strong> menu: Replace Combination · Remove Combination · Share LuckyPick</li>
+<li><strong>START NEW SET</strong> button (available as soon as 1 combination exists)</li>
+<li>At 12 combinations: <strong>SET COMPLETE</strong> state with <strong>START NEW SET</strong> CTA</li>
+</ul>
+<h3 id="empty-my-picks-state">Empty My Picks State</h3>
+<ul>
+<li><em>"No combinations yet"</em></li>
+<li><strong>CREATE YOUR FIRST LUCKY PICK</strong> button</li>
+</ul>
+<h3 id="saved-sets-screen">Saved Sets Screen</h3>
+<ul>
+<li>List of archived sets by date (e.g. <em>"8 August 2026 – 6 combinations"</em>)</li>
+<li>Tap to expand and view combinations with mode labels</li>
+</ul>
+<hr />
+<h2 id="5-results-draw-history">5. Results &amp; Draw History</h2>
+<h3 id="results-screen">Results Screen</h3>
+<ul>
+<li>Latest draw shown immediately on open — no tap required</li>
+<li>Draw Date + 5 main number balls + 2 Lucky Stars (official ball/star visual style)</li>
+<li><strong>PRIZE BREAKDOWN</strong> section below: Tier · Prize Amount · Number of Winners (all available tiers)</li>
+<li><em>"Prize information pending"</em> state when numbers are published but prize data not yet available</li>
+<li>Link to <strong>Draw History</strong></li>
+</ul>
+<h3 id="draw-history-screen">Draw History Screen</h3>
+<ul>
+<li>List of last 100 draws, newest first</li>
+<li>Each row: Date + 5 numbers + 2 Stars</li>
+<li>Tap any row to open <strong>Draw Detail</strong></li>
+</ul>
+<h3 id="draw-detail-screen">Draw Detail Screen</h3>
+<ul>
+<li>Same layout as Results Screen</li>
+<li>Full prize breakdown for that specific draw</li>
+<li>← Back to Draw History</li>
+</ul>
+<hr />
+<h2 id="6-statistics-screen">6. Statistics Screen</h2>
+<ul>
+<li><strong>HOT NUMBERS</strong> — top 10 most frequent main numbers (last 100 draws)</li>
+<li><strong>COLD NUMBERS</strong> — bottom 10 least frequent</li>
+<li><strong>TRENDING</strong> — numbers with strongest recent uplift (last 20 vs 100 draws)</li>
+<li><strong>NUMBER FREQUENCY</strong> — frequency chart/bar for all 50 main numbers</li>
+<li><strong>LUCKY STAR FREQUENCY</strong> — frequency for all 12 Lucky Stars</li>
+<li>Free users: limited preview of top 5 numbers only</li>
+<li>Premium users: full statistics</li>
+<li>Disclaimer always visible: <em>"Historical frequency does not predict future results"</em></li>
+</ul>
+<hr />
+<h2 id="7-notifications-settings">7. Notifications Settings</h2>
+<ul>
+<li>Three independent toggles (ON/OFF):</li>
+<li><strong>Draw Reminders</strong></li>
+<li><strong>Results Available</strong></li>
+<li><strong>Jackpot Won</strong></li>
+<li>Available to Free and Premium users</li>
+<li>No separate toggle for €100M+ High Jackpot (it is a variant of Draw Reminder)</li>
+</ul>
+<hr />
+<h2 id="8-premium-screens">8. Premium Screens</h2>
+<h3 id="premium-screen-central-all-entry-points-lead-here">Premium Screen (Central — all entry points lead here)</h3>
+<ul>
+<li>Headline: <em>"Make LuckyPick truly yours."</em></li>
+<li>Benefits list: All 10 Lucky Modes · Unlimited Generations · Advanced Statistics · Unlimited My Picks · Future Premium Features</li>
+<li>Three plan options:</li>
+<li><strong>MONTHLY</strong> — €8.99/mo, auto-renews</li>
+<li><strong>YEARLY — BEST VALUE</strong> — €79.99/yr, visually highlighted in gold, <em>"SAVE ~26%"</em></li>
+<li><strong>LIFETIME</strong> — €179.99 once, no subscription</li>
+<li>Clearly visible <strong>✕ / Back</strong> button — no dark patterns</li>
+<li><strong>RESTORE PURCHASES</strong> link at bottom</li>
+</ul>
+<div class="admonition warning">
+<p class="admonition-title">Do NOT include</p>
+<ul>
+<li>"No Ads" as a Premium benefit (LuckyPick is ad-free for everyone)</li>
+<li>Fake countdown timers or urgency messages</li>
+<li>Hidden close buttons</li>
+</ul>
+</div>
+<h3 id="post-purchase-confirmation-screen">Post-Purchase Confirmation Screen</h3>
+<ul>
+<li><em>"Welcome to LuckyPick Premium. Premium is now active."</em></li>
+<li><strong>CONTINUE</strong> button — returns user directly to the feature they came from</li>
+</ul>
+<hr />
+<h2 id="9-social-sharing-flow">9. Social Sharing Flow</h2>
+<ul>
+<li>After tapping <strong>SHARE</strong>, the device native share sheet opens automatically</li>
+<li>No template selection required — LuckyPick generates the card automatically</li>
+<li>After sharing: stay on current result, preserve combination and My Picks</li>
+</ul>
+<hr />
+<h2 id="10-settings-more-screen">10. Settings / More Screen</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">Item</th>
+<th style="text-align: left;">Action</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Premium / Manage Premium</td>
+<td style="text-align: left;">Opens Premium Screen or subscription management</td>
+</tr>
+<tr>
+<td style="text-align: left;">Draw History</td>
+<td style="text-align: left;">Navigate to Draw History</td>
+</tr>
+<tr>
+<td style="text-align: left;">Notifications</td>
+<td style="text-align: left;">Navigate to Notification Settings</td>
+</tr>
+<tr>
+<td style="text-align: left;">Language</td>
+<td style="text-align: left;">Language selector</td>
+</tr>
+<tr>
+<td style="text-align: left;">Contact Support</td>
+<td style="text-align: left;">Opens support channel</td>
+</tr>
+<tr>
+<td style="text-align: left;">Rate LuckyPick</td>
+<td style="text-align: left;">Opens App Store / Play Store review</td>
+</tr>
+<tr>
+<td style="text-align: left;">LuckyPick Website</td>
+<td style="text-align: left;">Opens luckypick.eu in browser</td>
+</tr>
+<tr>
+<td style="text-align: left;">Restore Purchases</td>
+<td style="text-align: left;">Triggers StoreKit / Play Billing restore</td>
+</tr>
+<tr>
+<td style="text-align: left;">About LuckyPick</td>
+<td style="text-align: left;">Version, tagline, legal links</td>
+</tr>
+<tr>
+<td style="text-align: left;">Privacy Policy</td>
+<td style="text-align: left;">Opens policy URL</td>
+</tr>
+<tr>
+<td style="text-align: left;">Terms &amp; Conditions</td>
+<td style="text-align: left;">Opens T&amp;C URL</td>
+</tr>
+</tbody>
+</table>
+<h3 id="about-screen">About Screen</h3>
+<ul>
+<li>App name, version (<em>"Version 1.0"</em>), <em>"100% Ad-Free"</em> badge</li>
+<li>Short description of LuckyPick</li>
+<li>Privacy Policy + Terms &amp; Conditions links</li>
+<li>Tagline: <em>"Made for lucky moments."</em></li>
+</ul>
+<hr />
+<h2 id="11-empty-error-states-ux-required">11. Empty &amp; Error States (UX Required)</h2>
+<table>
+<thead>
+<tr>
+<th style="text-align: left;">State</th>
+<th style="text-align: left;">Where</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td style="text-align: left;">Empty My Picks</td>
+<td style="text-align: left;">My Picks screen — no combinations yet</td>
+</tr>
+<tr>
+<td style="text-align: left;">Set Complete (12/12)</td>
+<td style="text-align: left;">My Picks — prompt START NEW SET</td>
+</tr>
+<tr>
+<td style="text-align: left;">No Saved Sets</td>
+<td style="text-align: left;">Saved Sets screen</td>
+</tr>
+<tr>
+<td style="text-align: left;">Results Pending</td>
+<td style="text-align: left;">Results screen — draw not yet available</td>
+</tr>
+<tr>
+<td style="text-align: left;">Prize Information Pending</td>
+<td style="text-align: left;">Results — numbers available, prize data not yet</td>
+</tr>
+<tr>
+<td style="text-align: left;">Free Limit Reached</td>
+<td style="text-align: left;">Home / Generator — 0 picks remaining</td>
+</tr>
+<tr>
+<td style="text-align: left;">Premium Mode Locked</td>
+<td style="text-align: left;">Lucky Mode tap — free user</td>
+</tr>
+<tr>
+<td style="text-align: left;">Purchase Failed / Cancelled</td>
+<td style="text-align: left;">After failed IAP — neutral message</td>
+</tr>
+<tr>
+<td style="text-align: left;">No Network</td>
+<td style="text-align: left;">When API calls fail — non-intrusive error</td>
+</tr>
+<tr>
+<td style="text-align: left;">Notification Permission Declined</td>
+<td style="text-align: left;">Gracefully proceed, no repeated prompts</td>
+</tr>
+</tbody>
+</table>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../../development-launch/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Development &amp; Launch">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Development & Launch
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../graphic-design/" class="md-footer__link md-footer__link--next" aria-label="Next: Graphic Design">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                Graphic Design
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "../..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
