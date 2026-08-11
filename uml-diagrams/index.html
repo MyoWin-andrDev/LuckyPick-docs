@@ -1,0 +1,1720 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete product, architecture, and technical documentation for the LuckyPick EuroMillions companion app.">
+      
+      
+        <meta name="author" content="LuckyPick Team">
+      
+      
+        <link rel="canonical" href="https://myowin-andrdev.github.io/LuckyPick-docs/uml-diagrams/">
+      
+      
+        <link rel="prev" href="../app-flow/">
+      
+      
+        <link rel="next" href="../system-design/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>UML Diagrams - LuckyPick EuroMillions Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#uml-diagrams" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="LuckyPick EuroMillions Documentation" class="md-header__button md-logo" aria-label="LuckyPick EuroMillions Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LuckyPick EuroMillions Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              UML Diagrams
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Architecture
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../app-flow/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Application Flow
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  UML Diagrams
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../system-design/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  System Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../features/overview/" class="md-tabs__link">
+          
+  
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../backend-admin/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Backend & Admin
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../website/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Website & Deep Links
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../development-launch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Development & Launch
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="LuckyPick EuroMillions Documentation" class="md-nav__button md-logo" aria-label="LuckyPick EuroMillions Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LuckyPick EuroMillions Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../app-flow/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UML Diagrams
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UML Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-domain-class-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Domain Class Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-system-component-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. System Component Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sequence-diagram-lucky-mode-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Sequence Diagram — Lucky Mode Generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-sequence-diagram-backend-draw-ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Sequence Diagram — Backend Draw Ingestion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sequence-diagram-premium-purchase-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sequence Diagram — Premium Purchase (iOS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-state-machine-my-picks-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. State Machine — My Picks Set
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-state-machine-notification-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. State Machine — Notification Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-deployment-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Deployment Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/lucky-modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lucky Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/my-picks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    My Picks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/results-history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results & History
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/premium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Premium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/social-sharing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Social Sharing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend & Admin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../website/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Website & Deep Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development-launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development & Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-domain-class-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. Domain Class Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-system-component-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. System Component Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-sequence-diagram-lucky-mode-generation" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Sequence Diagram — Lucky Mode Generation
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-sequence-diagram-backend-draw-ingestion" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Sequence Diagram — Backend Draw Ingestion
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-sequence-diagram-premium-purchase-ios" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Sequence Diagram — Premium Purchase (iOS)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-state-machine-my-picks-set" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. State Machine — My Picks Set
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-state-machine-notification-decision" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. State Machine — Notification Decision
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-deployment-diagram" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Deployment Diagram
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="uml-diagrams">UML Diagrams</h1>
+<p>Structural and behavioural models for the LuckyPick EuroMillions system.</p>
+<hr />
+<h2 id="1-domain-class-diagram">1. Domain Class Diagram</h2>
+<pre class="mermaid"><code>classDiagram
+    direction TB
+
+    class User {
+        +String id
+        +String preferredLanguage
+        +UserTier tier
+        +DateTime createdAt
+        +List~LuckyModeInput~ savedInputs
+        +NotificationPreferences notifPrefs
+    }
+
+    class UserTier {
+        &lt;&lt;enumeration&gt;&gt;
+        FREE
+        PREMIUM_MONTHLY
+        PREMIUM_YEARLY
+        PREMIUM_LIFETIME
+    }
+
+    class MyPicksSet {
+        +String id
+        +String userId
+        +DateTime createdAt
+        +SetStatus status
+        +List~Combination~ combinations
+        +int maxSize = 12
+        +addCombination(Combination) bool
+        +startNewSet() MyPicksSet
+    }
+
+    class SetStatus {
+        &lt;&lt;enumeration&gt;&gt;
+        ACTIVE
+        ARCHIVED
+    }
+
+    class Combination {
+        +String id
+        +List~int~ mainNumbers
+        +List~int~ luckyStars
+        +LuckyMode mode
+        +LuckyModeInput modeSnapshot
+        +DateTime generatedAt
+        +validate() bool
+        +isEqualTo(Combination) bool
+    }
+
+    class LuckyMode {
+        &lt;&lt;enumeration&gt;&gt;
+        QUICK_PICK
+        BIRTHDAY
+        HOROSCOPE
+        PET
+        FAMILY
+        LUCKY_COLOR
+        LUCKY_NUMBER
+        HOT_NUMBERS
+        COLD_NUMBERS
+        TRENDING
+        SMART_MIX
+    }
+
+    class LuckyModeInput {
+        +LuckyMode mode
+        +Map~String, dynamic~ params
+    }
+
+    class EuroMillionsDraw {
+        +String id
+        +DateTime drawDate
+        +List~int~ mainNumbers
+        +List~int~ luckyStars
+        +BigDecimal jackpotAmount
+        +bool jackpotWon
+        +int jackpotWinners
+        +List~PrizeTier~ prizeBreakdown
+        +bool isValidated
+    }
+
+    class PrizeTier {
+        +int tierNumber
+        +String matchDescription
+        +BigDecimal prizeAmount
+        +int numberOfWinners
+    }
+
+    class DrawDatabase {
+        +List~EuroMillionsDraw~ draws
+        +int maxDraws = 100
+        +addDraw(EuroMillionsDraw) bool
+        +removeOldest() void
+        +getLatest() EuroMillionsDraw
+        +getHistory() List~EuroMillionsDraw~
+        +getStatistics() DrawStatistics
+    }
+
+    class DrawStatistics {
+        +Map~int, int~ mainNumberFrequency
+        +Map~int, int~ luckyStarFrequency
+        +List~int~ hotNumbers
+        +List~int~ coldNumbers
+        +List~int~ trendingNumbers
+        +List~int~ hotStars
+        +List~int~ coldStars
+        +List~int~ trendingStars
+        +DateTime calculatedAt
+    }
+
+    class NotificationPreferences {
+        +bool drawReminders
+        +bool resultsAvailable
+        +bool jackpotWon
+    }
+
+    class Subscription {
+        +String id
+        +String userId
+        +SubscriptionType type
+        +DateTime startDate
+        +DateTime expiryDate
+        +bool isActive
+        +String storeTransactionId
+    }
+
+    class SubscriptionType {
+        &lt;&lt;enumeration&gt;&gt;
+        MONTHLY
+        YEARLY
+        LIFETIME
+    }
+
+    class GenerationEngine {
+        +generateQuickPick() Combination
+        +generateBirthday(LuckyModeInput) Combination
+        +generateHoroscope(LuckyModeInput) Combination
+        +generatePet(LuckyModeInput) Combination
+        +generateFamily(LuckyModeInput) Combination
+        +generateLuckyColor(LuckyModeInput) Combination
+        +generateLuckyNumber(LuckyModeInput) Combination
+        +generateHot(DrawStatistics) Combination
+        +generateCold(DrawStatistics) Combination
+        +generateTrending(DrawStatistics) Combination
+        +generateSmartMix(DrawStatistics) Combination
+        -validate(Combination) bool
+        -isDuplicate(Combination, List~Combination~) bool
+    }
+
+    User "1" --&gt; "1" UserTier
+    User "1" --&gt; "*" MyPicksSet
+    User "1" --&gt; "1" NotificationPreferences
+    User "1" --&gt; "0..1" Subscription
+    MyPicksSet "1" --&gt; "*" Combination
+    MyPicksSet "1" --&gt; "1" SetStatus
+    Combination "1" --&gt; "1" LuckyMode
+    Combination "1" --&gt; "1" LuckyModeInput
+    EuroMillionsDraw "1" --&gt; "*" PrizeTier
+    DrawDatabase "1" --&gt; "*" EuroMillionsDraw
+    DrawDatabase "1" --&gt; "1" DrawStatistics
+    Subscription "1" --&gt; "1" SubscriptionType
+    GenerationEngine ..&gt; DrawStatistics : reads
+    GenerationEngine ..&gt; Combination : creates</code></pre>
+<hr />
+<h2 id="2-system-component-diagram">2. System Component Diagram</h2>
+<pre class="mermaid"><code>graph TB
+    subgraph Mobile["Mobile Client (Flutter)"]
+        UI[UI Layer\nScreens + Widgets]
+        State[State Management\nProvider / Riverpod / BLoC]
+        Gen[Generation Engine\n10 Lucky Modes]
+        Local[Local Storage\nSQLite / Hive]
+        IAP[In-App Purchase\nStoreKit 2 / Google Play Billing]
+        Push[Push Notification\nLocal + Remote Handler]
+        Share[Social Share\nNative Share Sheet]
+    end
+
+    subgraph Backend["Backend Server"]
+        API[REST API Server\nNode.js / Go / Python]
+        Scraper[Scraper Engine\nCron Tue/Fri 20:45 CET]
+        Validator[Draw Validator]
+        StatCalc[Statistics Calculator]
+        PushDispatch[Push Dispatcher\nFCM + APNs]
+        AdminPanel[Owner Admin Panel\nluckypick.eu/admin]
+    end
+
+    subgraph Data["Data Layer"]
+        DB[(PostgreSQL\nDraw History\n100-draw rolling)]
+        Cache[(Redis Cache\nLatest draw + stats)]
+    end
+
+    subgraph External["External Services"]
+        BNL[Belgian National\nLottery — Official Source]
+        FCM[Firebase FCM]
+        APNs[Apple APNs]
+        AppStore[Apple App Store\nStoreKit 2]
+        GooglePlay[Google Play\nBilling]
+        DeepLink[Branch.io / Firebase\nDynamic Links]
+    end
+
+    UI &lt;--&gt; State
+    State &lt;--&gt; Gen
+    State &lt;--&gt; Local
+    State &lt;--&gt; API
+    IAP &lt;--&gt; AppStore
+    IAP &lt;--&gt; GooglePlay
+    Push &lt;--&gt; FCM
+    Push &lt;--&gt; APNs
+
+    API &lt;--&gt; DB
+    API &lt;--&gt; Cache
+    Scraper --&gt; BNL
+    Scraper --&gt; Validator
+    Validator --&gt; StatCalc
+    StatCalc --&gt; DB
+    StatCalc --&gt; Cache
+    PushDispatch --&gt; FCM
+    PushDispatch --&gt; APNs
+    AdminPanel --&gt; API
+
+    Share --&gt; DeepLink
+    DeepLink --&gt; Mobile</code></pre>
+<hr />
+<h2 id="3-sequence-diagram-lucky-mode-generation">3. Sequence Diagram — Lucky Mode Generation</h2>
+<pre class="mermaid"><code>sequenceDiagram
+    actor User
+    participant UI
+    participant GenEngine as Generation Engine
+    participant Validator
+    participant DupChecker as Duplicate Checker
+    participant LocalDB as Local Storage
+
+    User-&gt;&gt;UI: Select Lucky Mode + Enter Input
+    User-&gt;&gt;UI: Tap GENERATE MY LUCKY NUMBERS
+    UI-&gt;&gt;GenEngine: generate(mode, input, stats)
+
+    loop Until valid &amp; unique
+        GenEngine-&gt;&gt;GenEngine: Apply mode-specific algorithm
+        GenEngine-&gt;&gt;GenEngine: Immediate exclusion of selected numbers
+        GenEngine-&gt;&gt;Validator: validate(combination)
+        Validator-&gt;&gt;Validator: Check 5 unique main 1–50
+        Validator-&gt;&gt;Validator: Check 2 unique stars 1–12
+        alt Validation fails
+            Validator--&gt;&gt;GenEngine: INVALID — regenerate
+        else Valid
+            Validator--&gt;&gt;GenEngine: VALID
+            GenEngine-&gt;&gt;DupChecker: isDuplicate(combination, activePicks)
+            alt Is duplicate
+                DupChecker--&gt;&gt;GenEngine: DUPLICATE — regenerate
+            else Not duplicate
+                DupChecker--&gt;&gt;GenEngine: UNIQUE
+            end
+        end
+    end
+
+    GenEngine--&gt;&gt;UI: Valid unique combination
+    UI--&gt;&gt;User: Show result (1–1.5s animation)
+
+    User-&gt;&gt;UI: ADD TO MY PICKS
+    UI-&gt;&gt;Validator: validateBeforeSave(combination)
+    Validator--&gt;&gt;UI: VALID
+    UI-&gt;&gt;LocalDB: save(combination, modeSnapshot)
+    LocalDB--&gt;&gt;UI: Saved ✓
+    UI--&gt;&gt;User: Added to My Picks ✓</code></pre>
+<hr />
+<h2 id="4-sequence-diagram-backend-draw-ingestion">4. Sequence Diagram — Backend Draw Ingestion</h2>
+<pre class="mermaid"><code>sequenceDiagram
+    participant Cron as Cron Job\n(Tue/Fri 20:45 CET)
+    participant Scraper
+    participant BNL as Belgian National Lottery
+    participant Validator
+    participant DB as PostgreSQL
+    participant StatCalc as Statistics Calculator
+    participant PushSvc as Push Service
+    participant App as Mobile App
+
+    Cron-&gt;&gt;Scraper: trigger()
+    Scraper-&gt;&gt;BNL: fetch draw results
+    BNL--&gt;&gt;Scraper: draw data
+
+    Scraper-&gt;&gt;Validator: validate(drawData)
+    Validator-&gt;&gt;Validator: Check 5 unique main 1–50
+    Validator-&gt;&gt;Validator: Check 2 unique stars 1–12
+    Validator-&gt;&gt;Validator: Check draw date
+    Validator-&gt;&gt;Validator: Check no duplicate draw
+
+    alt Validation fails
+        Validator--&gt;&gt;Scraper: INVALID
+        Scraper-&gt;&gt;DB: keep existing 100 draws intact
+        Scraper--&gt;&gt;AdminPanel: ATTENTION REQUIRED alert
+    else Valid
+        Validator--&gt;&gt;Scraper: VALID
+        Scraper-&gt;&gt;DB: INSERT new draw
+        Scraper-&gt;&gt;DB: DELETE oldest draw (100 maintained)
+        DB--&gt;&gt;Scraper: OK
+        Scraper-&gt;&gt;StatCalc: recalculate(latest 100 draws)
+        StatCalc-&gt;&gt;StatCalc: Hot / Cold / Trending / Frequency
+        StatCalc-&gt;&gt;DB: UPDATE statistics
+        Scraper-&gt;&gt;PushSvc: sendResultsAvailable(drawId)
+        PushSvc-&gt;&gt;App: Results Available push notification
+    end
+
+    Note over Scraper,DB: Prize breakdown may arrive later
+
+    Scraper-&gt;&gt;BNL: fetch prize breakdown
+    BNL--&gt;&gt;Scraper: prize data
+    Scraper-&gt;&gt;Validator: validatePrize(prizeData)
+    alt Prize valid
+        Validator--&gt;&gt;Scraper: VALID
+        Scraper-&gt;&gt;DB: UPDATE prize breakdown
+        Scraper-&gt;&gt;Scraper: Check 5+2 jackpot winners
+        alt Winners &gt;= 1
+            Scraper-&gt;&gt;PushSvc: sendJackpotWon(drawId)
+            PushSvc-&gt;&gt;App: Jackpot Won push notification
+        end
+    end</code></pre>
+<hr />
+<h2 id="5-sequence-diagram-premium-purchase-ios">5. Sequence Diagram — Premium Purchase (iOS)</h2>
+<pre class="mermaid"><code>sequenceDiagram
+    actor User
+    participant App
+    participant PremiumScreen
+    participant StoreKit as StoreKit 2
+    participant AppStore as Apple App Store
+    participant Backend
+
+    User-&gt;&gt;App: Tap UNLOCK PREMIUM\nor hit free pick limit
+    App-&gt;&gt;PremiumScreen: open(returnDestination)
+    User-&gt;&gt;PremiumScreen: Select Yearly / Monthly / Lifetime
+    PremiumScreen-&gt;&gt;StoreKit: purchase(productId)
+    StoreKit-&gt;&gt;AppStore: initiate purchase
+    AppStore--&gt;&gt;User: Auth prompt
+    User-&gt;&gt;AppStore: Authenticate
+    AppStore--&gt;&gt;StoreKit: Transaction signed
+    StoreKit--&gt;&gt;PremiumScreen: Transaction result
+
+    alt Purchase SUCCESS
+        PremiumScreen-&gt;&gt;Backend: verifyReceipt(transactionId)
+        Backend-&gt;&gt;AppStore: verify(receipt)
+        AppStore--&gt;&gt;Backend: VALID
+        Backend--&gt;&gt;App: Premium ACTIVE
+        App--&gt;&gt;User: WELCOME TO LUCKYPICK PREMIUM
+        App-&gt;&gt;App: Navigate back to returnDestination
+        Note over App: My Picks &amp; Saved Sets preserved
+    else Purchase FAILED / CANCELLED
+        PremiumScreen--&gt;&gt;User: Neutral message
+        App-&gt;&gt;App: Return to previous screen safely
+    end</code></pre>
+<hr />
+<h2 id="6-state-machine-my-picks-set">6. State Machine — My Picks Set</h2>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Empty : App first launch / START NEW SET
+
+    Empty --&gt; Active : First combination added\n(ADD TO MY PICKS)
+
+    Active --&gt; Active : Generate Another / Choose Another Mode\ncombinations 2–11
+
+    Active --&gt; Full : 12th combination added
+
+    Full --&gt; Archived : User taps START NEW SET
+
+    Active --&gt; Archived : User taps START NEW SET\n(before reaching 12)
+
+    Archived --&gt; [*] : Stored in SAVED SETS\nnever auto-modified
+
+    state Active {
+        [*] --&gt; Generating
+        Generating --&gt; ValidatingLayer1 : combination produced
+        ValidatingLayer1 --&gt; DuplicateCheck : valid
+        ValidatingLayer1 --&gt; Generating : invalid — regenerate
+        DuplicateCheck --&gt; SavedToPicks : unique
+        DuplicateCheck --&gt; Generating : duplicate — regenerate
+        SavedToPicks --&gt; Generating : Generate Another
+    }</code></pre>
+<hr />
+<h2 id="7-state-machine-notification-decision">7. State Machine — Notification Decision</h2>
+<pre class="mermaid"><code>stateDiagram-v2
+    [*] --&gt; Idle
+
+    Idle --&gt; PreDrawCheck : Mon/Thu at 19:00 local
+
+    PreDrawCheck --&gt; HighJackpotReminder : Jackpot validated ≥ €100M
+    PreDrawCheck --&gt; StandardReminder : Jackpot &lt; €100M\nor unverified
+
+    HighJackpotReminder --&gt; Sent : Push dispatched
+    StandardReminder --&gt; Sent : Push dispatched
+
+    Sent --&gt; WaitingForDraw : Awaiting draw completion
+
+    WaitingForDraw --&gt; ValidatingNumbers : Draw data received
+
+    ValidatingNumbers --&gt; PublishResults : Numbers valid
+    ValidatingNumbers --&gt; WaitingForDraw : Invalid — retain existing data
+
+    PublishResults --&gt; ResultsAvailableSent : Results Available push dispatched
+    ResultsAvailableSent --&gt; WaitingForPrize : Awaiting prize breakdown
+
+    WaitingForPrize --&gt; ValidatingPrize : Prize data received
+    ValidatingPrize --&gt; CheckJackpotWinners : Prize valid
+    ValidatingPrize --&gt; Idle : Invalid — no jackpot notification
+
+    CheckJackpotWinners --&gt; JackpotWonSent : 5+2 Winners &gt;= 1
+    CheckJackpotWinners --&gt; Idle : Winners = 0 — no notification
+
+    JackpotWonSent --&gt; Idle : Cycle complete</code></pre>
+<hr />
+<h2 id="8-deployment-diagram">8. Deployment Diagram</h2>
+<pre class="mermaid"><code>graph LR
+    subgraph UserDevices["User Devices"]
+        iOS[iPhone\niOS App\nFlutter]
+        Android[Android Phone\nAndroid App\nFlutter]
+    end
+
+    subgraph Cloud["Cloud Infrastructure"]
+        LB[Load Balancer\nNginx / Cloudflare]
+        API1[API Server 1]
+        API2[API Server 2]
+        ScraperSvc[Scraper Service\nCron Scheduler]
+        AdminSvc[Admin Panel\nluckypick.eu/admin]
+        PG[(PostgreSQL\nDraw History + Users\n+ Subscriptions)]
+        Redis[(Redis\nStats Cache)]
+        S3[Object Storage\nShared Card Assets]
+    end
+
+    subgraph PushGateways["Push Gateways"]
+        FCMSvc[Firebase Cloud\nMessaging]
+        APNsSvc[Apple Push\nNotification Service]
+    end
+
+    subgraph StoreInfra["Store Infrastructure"]
+        AppStoreSvc[Apple App Store\nStoreKit 2]
+        PlaySvc[Google Play\nBilling]
+    end
+
+    iOS &lt;--&gt;|HTTPS REST| LB
+    Android &lt;--&gt;|HTTPS REST| LB
+    LB --&gt; API1
+    LB --&gt; API2
+    API1 &lt;--&gt; PG
+    API1 &lt;--&gt; Redis
+    API2 &lt;--&gt; PG
+    API2 &lt;--&gt; Redis
+    ScraperSvc --&gt; PG
+    ScraperSvc --&gt; FCMSvc
+    ScraperSvc --&gt; APNsSvc
+    AdminSvc --&gt; PG
+
+    iOS &lt;--&gt; FCMSvc
+    Android &lt;--&gt; FCMSvc
+    iOS &lt;--&gt; APNsSvc
+
+    iOS &lt;--&gt;|IAP| AppStoreSvc
+    Android &lt;--&gt;|IAP| PlaySvc
+    API1 &lt;--&gt;|Receipt verify| AppStoreSvc
+    API1 &lt;--&gt;|Receipt verify| PlaySvc
+
+    S3 &lt;--&gt; iOS
+    S3 &lt;--&gt; Android</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../app-flow/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Application Flow">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Application Flow
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../system-design/" class="md-footer__link md-footer__link--next" aria-label="Next: System Design">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                System Design
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>

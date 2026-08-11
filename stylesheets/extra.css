@@ -1,0 +1,196 @@
+/* --------------------------------------------------------------------------
+   LuckyPick Dark Night Theme Stylesheet
+   Color Palette:
+   - Primary Deep Night:  #080E18
+   - Secondary Night:     #0D1B2A
+   - Surface / Cards:     #142136
+   - Surface Light:       #1D2E4A
+   - Gold Accent:         #E0A96D
+   - Text Bright:         #F8FAFC
+   - Text Muted:          #94A3B8
+   - Border Subtle:       #2A3C5A
+   -------------------------------------------------------------------------- */
+
+:root,
+[data-md-color-scheme="slate"] {
+  --md-hue: 220;
+  
+  /* Primary & Slate background overrides */
+  --md-default-bg-color:              #080E18 !important;
+  --md-default-bg-color--light:       #0D1B2A !important;
+  --md-default-bg-color--lighter:     #142136 !important;
+  --md-default-bg-color--card:        #142136 !important;
+  
+  --md-default-fg-color:              #F8FAFC !important;
+  --md-default-fg-color--light:       #CBD5E1 !important;
+  --md-default-fg-color--lighter:     #94A3B8 !important;
+  --md-default-fg-color--lightest:    #64748B !important;
+  
+  --md-primary-fg-color:              #0D1B2A !important;
+  --md-primary-fg-color--dark:        #080E18 !important;
+  --md-primary-bg-color:              #F8FAFC !important;
+  --md-primary-bg-color--light:       #080E18 !important;
+
+  --md-accent-fg-color:               #E0A96D !important;
+  --md-accent-fg-color--transparent:  rgba(224, 169, 109, 0.15) !important;
+  
+  --md-code-bg-color:                 #04080F !important;
+  --md-code-fg-color:                 #F1F5F9 !important;
+
+  --md-typeset-color:                 #F8FAFC !important;
+  --md-typeset-a-color:               #E0A96D !important;
+}
+
+/* Header & Top Navigation Bar */
+.md-header {
+  background-color: #080E18 !important;
+  border-bottom: 2px solid #E0A96D !important;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5) !important;
+}
+
+.md-tabs {
+  background-color: #0D1B2A !important;
+  border-bottom: 1px solid #1D2E4A !important;
+}
+
+.md-tabs__link {
+  color: #94A3B8 !important;
+  font-weight: 500;
+}
+
+.md-tabs__link--active,
+.md-tabs__link:hover {
+  color: #E0A96D !important;
+}
+
+/* Sidebar Navigation */
+.md-nav__link {
+  color: #CBD5E1 !important;
+}
+
+.md-nav__link--active,
+.md-nav__link:hover {
+  color: #E0A96D !important;
+}
+
+.md-nav__title {
+  color: #E0A96D !important;
+  font-weight: bold;
+}
+
+/* Typography & Headings */
+body, .md-typeset {
+  background-color: #080E18 !important;
+  color: #F8FAFC !important;
+}
+
+.md-typeset h1,
+.md-typeset h2,
+.md-typeset h3 {
+  color: #F8FAFC !important;
+  font-weight: 700;
+  letter-spacing: -0.02em;
+}
+
+.md-typeset h1 {
+  border-bottom: 1px solid #2A3C5A;
+  padding-bottom: 0.4em;
+}
+
+.md-typeset a {
+  color: #E0A96D !important;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+.md-typeset a:hover {
+  text-decoration: underline;
+}
+
+/* Content Cards & Containers */
+.md-typeset table:not([class]) {
+  background-color: #142136 !important;
+  border-radius: 8px;
+  overflow: hidden;
+  border: 1px solid #2A3C5A !important;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+}
+
+.md-typeset table:not([class]) th {
+  background-color: #0D1B2A !important;
+  color: #E0A96D !important;
+  border-bottom: 2px solid #2A3C5A !important;
+  font-weight: bold;
+}
+
+.md-typeset table:not([class]) td {
+  border-bottom: 1px solid #1D2E4A !important;
+  color: #F8FAFC !important;
+}
+
+/* Code Blocks */
+.md-typeset pre > code {
+  background-color: #04080F !important;
+  border: 1px solid #2A3C5A !important;
+  border-radius: 8px;
+  color: #F1F5F9 !important;
+}
+
+/* Admonitions (Callout boxes) */
+.md-typeset .admonition,
+.md-typeset details {
+  background-color: #142136 !important;
+  border-left-color: #E0A96D !important;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.3) !important;
+}
+
+.md-typeset .admonition__title,
+.md-typeset summary {
+  background-color: #0D1B2A !important;
+  color: #E0A96D !important;
+  font-weight: bold;
+}
+
+/* Badges & Gold Highlights */
+.gold-badge {
+  background-color: #E0A96D !important;
+  color: #080E18 !important;
+  font-weight: 700;
+  padding: 3px 10px;
+  border-radius: 14px;
+  font-size: 0.82em;
+  display: inline-block;
+  letter-spacing: 0.03em;
+}
+
+/* Search Modal */
+.md-search__inner {
+  background-color: #0D1B2A !important;
+}
+
+.md-search__input {
+  background-color: #142136 !important;
+  color: #F8FAFC !important;
+  border-radius: 8px;
+}
+
+.md-search-result {
+  background-color: #0D1B2A !important;
+  color: #F8FAFC !important;
+}
+
+.md-search-result__meta {
+  background-color: #080E18 !important;
+  color: #E0A96D !important;
+}
+
+/* Footer */
+.md-footer {
+  background-color: #04080F !important;
+  border-top: 1px solid #2A3C5A !important;
+}
+
+.md-footer-meta {
+  background-color: #04080F !important;
+}

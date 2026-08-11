@@ -1,0 +1,1618 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="Complete product, architecture, and technical documentation for the LuckyPick EuroMillions companion app.">
+      
+      
+        <meta name="author" content="LuckyPick Team">
+      
+      
+        <link rel="canonical" href="https://myowin-andrdev.github.io/LuckyPick-docs/app-flow/">
+      
+      
+        <link rel="prev" href="../architecture/">
+      
+      
+        <link rel="next" href="../uml-diagrams/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/images/favicon.png">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.7">
+    
+    
+      
+        <title>Application Flow - LuckyPick EuroMillions Documentation</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.ec1eaa64.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Roboto:300,300i,400,400i,700,700i%7CRoboto+Mono:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Roboto";--md-code-font:"Roboto Mono"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#application-flow" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+<header class="md-header" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="LuckyPick EuroMillions Documentation" class="md-header__button md-logo" aria-label="LuckyPick EuroMillions Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            LuckyPick EuroMillions Documentation
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Application Flow
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to light mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to light mode" for="__palette_1" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 18c-.89 0-1.74-.2-2.5-.55C11.56 16.5 13 14.42 13 12s-1.44-4.5-3.5-5.45C10.26 6.2 11.11 6 12 6a6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="default" data-md-color-primary="black" data-md-color-accent="amber"  aria-label="Switch to dark mode"  type="radio" name="__palette" id="__palette_1">
+    
+      <label class="md-header__button md-icon" title="Switch to dark mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a4 4 0 0 0-4 4 4 4 0 0 0 4 4 4 4 0 0 0 4-4 4 4 0 0 0-4-4m0 10a6 6 0 0 1-6-6 6 6 0 0 1 6-6 6 6 0 0 1 6 6 6 6 0 0 1-6 6m8-9.31V4h-4.69L12 .69 8.69 4H4v4.69L.69 12 4 15.31V20h4.69L12 23.31 15.31 20H20v-4.69L23.31 12z"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+            
+<nav class="md-tabs" aria-label="Tabs" data-md-component="tabs">
+  <div class="md-grid">
+    <ul class="md-tabs__list">
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href=".." class="md-tabs__link">
+        
+  
+  
+    
+  
+  Home
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../architecture/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Architecture
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+    
+  
+  
+    <li class="md-tabs__item md-tabs__item--active">
+      <a href="./" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Application Flow
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../uml-diagrams/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  UML Diagrams
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../system-design/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  System Design
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    
+    
+      <li class="md-tabs__item">
+        <a href="../features/overview/" class="md-tabs__link">
+          
+  
+  
+  Features
+
+        </a>
+      </li>
+    
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../backend-admin/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Backend & Admin
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../website/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Website & Deep Links
+
+      </a>
+    </li>
+  
+
+      
+        
+  
+  
+  
+  
+    <li class="md-tabs__item">
+      <a href="../development-launch/" class="md-tabs__link">
+        
+  
+  
+    
+  
+  Development & Launch
+
+      </a>
+    </li>
+  
+
+      
+    </ul>
+  </div>
+</nav>
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+  
+
+
+<nav class="md-nav md-nav--primary md-nav--lifted" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="LuckyPick EuroMillions Documentation" class="md-nav__button md-logo" aria-label="LuckyPick EuroMillions Documentation" data-md-component="logo">
+      
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M12 8a3 3 0 0 0 3-3 3 3 0 0 0-3-3 3 3 0 0 0-3 3 3 3 0 0 0 3 3m0 3.54C9.64 9.35 6.5 8 3 8v11c3.5 0 6.64 1.35 9 3.54 2.36-2.19 5.5-3.54 9-3.54V8c-3.5 0-6.64 1.35-9 3.54"/></svg>
+
+    </a>
+    LuckyPick EuroMillions Documentation
+  </label>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Flow
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Application Flow
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-first-launch-onboarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. First Launch &amp; Onboarding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-free-user-daily-generation-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Free User Daily Generation Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-premium-discovery-purchase-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Premium Discovery &amp; Purchase Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-lucky-mode-generation-flow-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Lucky Mode Generation Flow (General)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-individual-lucky-mode-input-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Individual Lucky Mode Input Flows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-my-picks-management-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. My Picks Management Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-results-draw-history-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Results &amp; Draw History Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-notification-decision-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Notification Decision Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-social-sharing-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Social Sharing Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-backend-automation-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Backend Automation Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../uml-diagrams/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    UML Diagrams
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../system-design/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    System Design
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+      
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="0">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/overview/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Overview
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/lucky-modes/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Lucky Modes
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/my-picks/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    My Picks
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/results-history/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Results & History
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/notifications/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Notifications
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/premium/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Premium
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../features/social-sharing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Social Sharing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../backend-admin/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Backend & Admin
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../website/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Website & Deep Links
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../development-launch/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development & Launch
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#1-first-launch-onboarding" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        1. First Launch &amp; Onboarding
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#2-free-user-daily-generation-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        2. Free User Daily Generation Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#3-premium-discovery-purchase-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        3. Premium Discovery &amp; Purchase Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#4-lucky-mode-generation-flow-general" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        4. Lucky Mode Generation Flow (General)
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#5-individual-lucky-mode-input-flows" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        5. Individual Lucky Mode Input Flows
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#6-my-picks-management-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        6. My Picks Management Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#7-results-draw-history-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        7. Results &amp; Draw History Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#8-notification-decision-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        8. Notification Decision Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#9-social-sharing-flow" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        9. Social Sharing Flow
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#10-backend-automation-pipeline" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        10. Backend Automation Pipeline
+      
+    </span>
+  </a>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+
+<h1 id="application-flow">Application Flow</h1>
+<p>Complete user journey maps for every major flow in LuckyPick EuroMillions.</p>
+<hr />
+<h2 id="1-first-launch-onboarding">1. First Launch &amp; Onboarding</h2>
+<pre class="mermaid"><code>flowchart TD
+    A([App Installed]) --&gt; B[Splash Screen\nLuckyPick Branding ~1s]
+    B --&gt; C[Welcome Screen\n+ Legal Disclaimer]
+    C --&gt; D{Language\nAuto-Detected?}
+    D --&gt;|Yes| E[Apply Detected Language]
+    D --&gt;|No| F[Default Language\nUser selects later in Settings]
+    E --&gt; G[GET STARTED Button]
+    F --&gt; G
+    G --&gt; H[Notification Permission\nPre-prompt explanation]
+    H --&gt; I{User Grants\nPermission?}
+    I --&gt;|Allow| J[Permissions Granted]
+    I --&gt;|Decline| K[Proceed — notifications\nnot required for use]
+    J --&gt; L[Home Screen]
+    K --&gt; L</code></pre>
+<div class="admonition note">
+<p class="admonition-title">Rules</p>
+<ul>
+<li>No mandatory account creation.</li>
+<li>No immediate paywall on launch.</li>
+<li>Legal disclaimer always visible at the bottom of the Welcome Screen.</li>
+</ul>
+</div>
+<hr />
+<h2 id="2-free-user-daily-generation-flow">2. Free User Daily Generation Flow</h2>
+<pre class="mermaid"><code>flowchart TD
+    A([User Opens App]) --&gt; B[Home Screen]
+    B --&gt; C{Free picks\nremaining today?}
+    C --&gt;|1–3 remaining| D[GENERATE MY NUMBERS]
+    C --&gt;|0 remaining| E[Limit Message:\nYou've used your 3 free\nLucky Picks for today]
+
+    D --&gt; F[Quick Pick / Random\nGeneration Engine]
+    F --&gt; G[Validate: 5 unique 1–50\n+ 2 unique Lucky Stars 1–12]
+    G --&gt; H{Valid?}
+    H --&gt;|No| F
+    H --&gt;|Yes| I[Display Result\n1–1.5s animation]
+    I --&gt; J[Decrement counter\n e.g. 2 free picks remaining]
+    J --&gt; K{User Action}
+    K --&gt;|ADD TO MY PICKS| L[Saved to Active Set]
+    K --&gt;|GENERATE AGAIN| F
+    K --&gt;|SHARE| M[Social Share Flow]
+
+    E --&gt; N[UNLOCK PREMIUM\nButton visible]
+    N --&gt; O[Premium Screen]
+    O --&gt;|Purchased| P[Unlimited Generations Unlocked]
+    O --&gt;|Back / Cancel| Q[Other free areas remain available]
+    Q --&gt; R[Next local calendar day\n→ counter resets to 3]</code></pre>
+<hr />
+<h2 id="3-premium-discovery-purchase-flow">3. Premium Discovery &amp; Purchase Flow</h2>
+<pre class="mermaid"><code>flowchart TD
+    A([Trigger]) --&gt; B{Entry Point}
+    B --&gt;|Home| C[Discover Premium Banner]
+    B --&gt;|Lucky Mode tap| D[Mode Description Screen]
+    B --&gt;|3 picks used| E[Limit Reached Screen]
+    B --&gt;|More → Premium| F[Settings Menu]
+
+    C --&gt; G[Premium Screen]
+    D --&gt; G
+    E --&gt; G
+    F --&gt; G
+
+    G --&gt; H[Choose Plan:\nMonthly €8.99\nYearly €79.99 BEST VALUE\nLifetime €179.99]
+    H --&gt; I[CONTINUE WITH SELECTED PLAN]
+    I --&gt; J[Official iOS / Android\nPurchase Flow]
+    J --&gt; K{Purchase Result}
+
+    K --&gt;|Success| L[WELCOME TO LUCKYPICK PREMIUM\nPremium active immediately]
+    K --&gt;|Failed / Cancelled| M[Neutral message\nReturn to previous screen]
+
+    L --&gt; N[Return to Feature\nthat triggered purchase]
+    N --&gt; O[All 10 Lucky Modes unlocked\nUnlimited generations\nAdvanced Statistics]</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Critical Rules</p>
+<ul>
+<li>No free trial at launch.</li>
+<li>No aggressive retry paywalls after a failed purchase.</li>
+<li>Existing My Picks and Saved Sets are <strong>never</strong> deleted during the premium flow.</li>
+<li>Yearly plan marked <strong>BEST VALUE</strong> — MOST POPULAR only once genuine data confirms it.</li>
+</ul>
+</div>
+<hr />
+<h2 id="4-lucky-mode-generation-flow-general">4. Lucky Mode Generation Flow (General)</h2>
+<pre class="mermaid"><code>flowchart TD
+    A([Lucky Modes Tab]) --&gt; B{User Tier}
+    B --&gt;|Free| C[All 10 modes visible\nPremium modes gold-labelled]
+    B --&gt;|Premium| D[All 10 modes accessible]
+
+    C --&gt; E{Select Mode}
+    E --&gt;|Free mode tapped| F[Mode Description shown]
+    F --&gt; G[UNLOCK WITH PREMIUM → Premium Flow]
+    D --&gt; H{Select Mode}
+
+    H --&gt; I[Enter / Select Mode Input\ne.g. pet name, birthday, zodiac sign]
+    I --&gt; J[GENERATE MY LUCKY NUMBERS]
+    J --&gt; K[Mode-Specific Algorithm\n+ Controlled Randomness]
+    K --&gt; L[Immediate Exclusion\nselected numbers removed from pool]
+    L --&gt; M[Validation Layer 1\n5 unique 1–50, 2 unique 1–12]
+    M --&gt; N{Valid?}
+    N --&gt;|No| K
+    N --&gt;|Yes| O[Full-Combination Duplicate Check\nagainst current session / My Picks]
+    O --&gt; P{Duplicate?}
+    P --&gt;|Yes| K
+    P --&gt;|No| Q[Display Result Screen\nwith 1–1.5s animation]
+    Q --&gt; R{User Action}
+    R --&gt;|ADD TO MY PICKS| S[Validation Layer 2\nbefore save]
+    R --&gt;|GENERATE AGAIN| K
+    R --&gt;|CHOOSE ANOTHER MODE| T[Return to Lucky Modes\nMy Picks preserved]
+    R --&gt;|CHANGE DETAILS| U[Re-enter mode input]
+    R --&gt;|SHARE| V[Social Share Flow]
+    S --&gt; W[Added to Active Set ✓\nUp to 12 per set]
+    W --&gt; X{Set full?\n12 combinations}
+    X --&gt;|No| R
+    X --&gt;|Yes| Y[SET COMPLETE\nSTART NEW SET]
+    Y --&gt; Z[Current set archived\nto Saved Sets]
+    Z --&gt; AA[New empty set begins]</code></pre>
+<hr />
+<h2 id="5-individual-lucky-mode-input-flows">5. Individual Lucky Mode Input Flows</h2>
+<div class="tabbed-set tabbed-alternate" data-tabs="1:8"><input checked="checked" id="__tabbed_1_1" name="__tabbed_1" type="radio" /><input id="__tabbed_1_2" name="__tabbed_1" type="radio" /><input id="__tabbed_1_3" name="__tabbed_1" type="radio" /><input id="__tabbed_1_4" name="__tabbed_1" type="radio" /><input id="__tabbed_1_5" name="__tabbed_1" type="radio" /><input id="__tabbed_1_6" name="__tabbed_1" type="radio" /><input id="__tabbed_1_7" name="__tabbed_1" type="radio" /><input id="__tabbed_1_8" name="__tabbed_1" type="radio" /><div class="tabbed-labels"><label for="__tabbed_1_1">Birthday Mode</label><label for="__tabbed_1_2">Horoscope Mode</label><label for="__tabbed_1_3">Pet Mode</label><label for="__tabbed_1_4">Family Mode</label><label for="__tabbed_1_5">Lucky Color Mode</label><label for="__tabbed_1_6">Lucky Number Mode</label><label for="__tabbed_1_7">Hot / Cold / Trending</label><label for="__tabbed_1_8">Smart Mix Mode</label></div>
+<div class="tabbed-content">
+<div class="tabbed-block">
+<pre class="mermaid"><code>flowchart LR
+    A[Enter Name/Nickname\noptional] --&gt; B[Enter Date of Birth\nDay + Month + Year]
+    B --&gt; C[Birthday transformed to\ninternal numerical profile\nnot raw day/month values]
+    C --&gt; D[Profile seeds\nfull 1–50 range available]
+    D --&gt; E[Generate 5+2\nwith entropy filler if needed]</code></pre>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>flowchart LR
+    A[Enter Day + Month only\nno birth year] --&gt; B[LuckyPick determines\nZodiac Sign automatically]
+    B --&gt; C[Each sign has its own\nnumerical profile/seed]
+    C --&gt; D[Controlled randomness\nprovides variation]
+    D --&gt; E[Generate 5+2]</code></pre>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>flowchart LR
+    A[Enter Pet Name] --&gt; B[Select Animal Type\nDog · Cat · Bird · Horse\nRabbit · Fish · Other]
+    B --&gt; C[Name + Type form\npersonal profile]
+    C --&gt; D[Generate 5+2]
+    D --&gt; E{More pets?}
+    E --&gt;|CHANGE PET| A
+    E --&gt;|Generate Again| D</code></pre>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>flowchart TD
+    A[Add Family Member\nRelationship + Name + DOB] --&gt; B{Add more?}
+    B --&gt;|+ADD FAMILY MEMBER| A
+    B --&gt;|Done| C[All members form\ncollective profile]
+    C --&gt; D[Generate 5+2]
+    D --&gt; E{Action}
+    E --&gt;|EDIT FAMILY| A
+    E --&gt;|START NEW FAMILY| F[New family profile]
+    E --&gt;|Generate Again| D</code></pre>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>flowchart LR
+    A[Display 10 colour circles\nBlue·Gold·Red·Green·Purple\nOrange·Pink·White·Black·Turquoise] --&gt; B{Select}
+    B --&gt;|Pick one| C[Selected colour has\nits own numerical profile]
+    B --&gt;|SURPRISE ME| D[Random colour chosen\nuses that colour's profile]
+    C --&gt; E[Generate 5+2\nBall colours unchanged]
+    D --&gt; E</code></pre>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>flowchart LR
+    A[Enter 1–3 Lucky Numbers\neach between 1–50] --&gt; B[Selected numbers\nare MANDATORY in every combination]
+    B --&gt; C[Insert lucky numbers first\nExclude from remaining pool]
+    C --&gt; D[Generate remaining\n4/3/2 Main Numbers\nfrom 1–50 excl. selected]
+    D --&gt; E[Generate 2 Lucky Stars\nfrom 1–12 independently]
+    E --&gt; F[Valid 5+2 Result]</code></pre>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>flowchart TD
+    A[100-draw rolling DB] --&gt; B{Mode}
+    B --&gt;|Hot| C[Top 10 Main Numbers\nTop 4 Lucky Stars]
+    B --&gt;|Cold| D[Bottom 10 Main Numbers\nBottom 4 Lucky Stars]
+    B --&gt;|Trending| E[Latest 20 vs Latest 100\nTop 10 upward movers\nTop 4 Lucky Stars movers]
+
+    C --&gt; F[3 from Hot Pool\n+ 2 from remaining 40\n1 from Hot Stars\n+ 1 from remaining 8]
+    D --&gt; G[3 from Cold Pool\n+ 2 from remaining 40\n1 from Cold Stars\n+ 1 from remaining 8]
+    E --&gt; H[3 Trending Main\n+ 2 remaining\n1 Trending Star\n+ 1 remaining]
+
+    F --&gt; I[Controlled distribution\nto avoid excessive repetition]
+    G --&gt; I
+    H --&gt; I
+    I --&gt; J[Valid 5+2 Result]</code></pre>
+</div>
+<div class="tabbed-block">
+<pre class="mermaid"><code>flowchart TD
+    A[No personal input required] --&gt; B[Step 1: Pick 1 Hot Number → exclude it]
+    B --&gt; C[Step 2: Pick 1 Cold Number → exclude both]
+    C --&gt; D[Step 3: Pick 1 Trending Number\nexclude used; skip if already selected]
+    D --&gt; E[Step 4: Pick 1 Random Number\nfrom remaining pool]
+    E --&gt; F[Step 5: Pick 1 Random Number\nfrom remaining pool]
+    F --&gt; G[Result: 1 Hot + 1 Cold + 1 Trending + 2 Random]
+    G --&gt; H[Lucky Stars:\n1 Statistical Star Hot/Cold/Trending\n+ 1 Random Star\nwith immediate exclusion]
+    H --&gt; I[Valid 5+2 Result]</code></pre>
+</div>
+</div>
+</div>
+<hr />
+<h2 id="6-my-picks-management-flow">6. My Picks Management Flow</h2>
+<pre class="mermaid"><code>flowchart TD
+    A([MY PICKS Screen]) --&gt; B{Active Set Status}
+    B --&gt;|Empty| C[MY PICKS\nNo combinations yet\nCREATE YOUR FIRST LUCKY PICK]
+    B --&gt;|1–11 combinations| D[List with mode labels\ne.g. Pet - Charlie, Horoscope - Leo]
+    B --&gt;|12 combinations| E[SET COMPLETE\nSTART NEW SET]
+
+    D --&gt; F{Per-combination ••• menu}
+    F --&gt;|REPLACE COMBINATION| G[Generate new using\noriginal Mode config snapshot\nValidate → Replace only if valid]
+    F --&gt;|REMOVE COMBINATION| H[Confirm: CANCEL / REMOVE\nOnly that combination removed]
+    F --&gt;|SHARE LUCKYPICK| I[Social Share Flow\nmode shown, numbers hidden]
+
+    D --&gt; J[START NEW SET]
+    J --&gt; K[Archive current set → SAVED SETS\nNew empty active set begins]
+
+    L([SAVED SETS]) --&gt; M[Archived sets by date\ne.g. 8 Aug 2026 – 6 combinations]
+    M --&gt; N[Open set: view combinations\nwith mode labels]</code></pre>
+<div class="admonition info">
+<p class="admonition-title">Core Rule</p>
+<p>Once saved, a combination is <strong>never</strong> changed automatically. Only explicit <code>REPLACE COMBINATION</code> or <code>REMOVE COMBINATION</code> can modify it.</p>
+</div>
+<hr />
+<h2 id="7-results-draw-history-flow">7. Results &amp; Draw History Flow</h2>
+<pre class="mermaid"><code>flowchart TD
+    A([Results Tab]) --&gt; B[Latest draw displayed immediately\nDraw Date + 5 Main + 2 Stars]
+    B --&gt; C[Prize Breakdown shown below\nall available prize tiers]
+    C --&gt; D{Prize data available?}
+    D --&gt;|Yes| E[Show: Tier · Amount · Winners]
+    D --&gt;|No — pending| F[Prize information pending]
+    F --&gt; G[Winning numbers still shown\nPrize auto-updates when validated]
+
+    B --&gt; H[DRAW HISTORY Button]
+    H --&gt; I[List: latest 100 draws\nnewest first]
+    I --&gt; J[Select any draw]
+    J --&gt; K[Draw Detail Screen\nDate + 5+2 + Prize Breakdown]
+    K --&gt; L[← Back to Draw History]</code></pre>
+<hr />
+<h2 id="8-notification-decision-flow">8. Notification Decision Flow</h2>
+<pre class="mermaid"><code>flowchart TD
+    A([Monday / Thursday 19:00 local]) --&gt; B[Backend: check upcoming jackpot]
+    B --&gt; C{Jackpot validated\n≥ €100M?}
+    C --&gt;|Yes| D[High Jackpot Draw Reminder\n€XXX million EuroMillions\njackpot tomorrow]
+    C --&gt;|No or unverified| E[Standard Draw Reminder\nEuroMillions draw tomorrow]
+    D --&gt; F[Tap → Combination Generation]
+    E --&gt; F
+
+    G([After Draw — Tue/Fri]) --&gt; H[Scraper retrieves draw data]
+    H --&gt; I[Validate: 5 unique 1–50\n2 unique 1–12\ncorrect draw date\nno duplicate draw]
+    I --&gt; J{Valid?}
+    J --&gt;|No| K[Keep existing 100 draws\nDo not remove oldest\nShow ATTENTION REQUIRED]
+    J --&gt;|Yes| L[Publish Results\nUpdate 100-draw DB\nRecalculate Stats]
+    L --&gt; M[Results Available Notification\nThe latest EuroMillions\nresults are available]
+    M --&gt; N[Tap → Results page for this draw]
+
+    L --&gt; O[Wait for Prize Breakdown]
+    O --&gt; P{5+2 Winners ≥ 1?}
+    P --&gt;|Yes| Q[Jackpot Won Notification\nEuroMillions jackpot won\nView the draw results]
+    P --&gt;|No| R[No jackpot notification\nResults Available still sent]
+    Q --&gt; S[Tap → Results page for exact draw]</code></pre>
+<div class="admonition warning">
+<p class="admonition-title">Hard Limits</p>
+<ul>
+<li>Maximum <strong>3 notifications per draw</strong>: 1 Draw Reminder + 1 Results Available + 1 Jackpot Won.</li>
+<li>Standard two-draw week: maximum <strong>6 notifications total</strong>.</li>
+<li><code>€100M+</code> Reminder <strong>replaces</strong> the Standard Reminder — never creates a second pre-draw notification.</li>
+</ul>
+</div>
+<hr />
+<h2 id="9-social-sharing-flow">9. Social Sharing Flow</h2>
+<pre class="mermaid"><code>flowchart TD
+    A([SHARE Button tapped]) --&gt; B[LuckyPick auto-creates\nbranded promotional card]
+    B --&gt; C[Card contents:\nLuckyPick logo\nLucky Mode used\nCall to action\nNo actual numbers]
+    C --&gt; D[Select Sharing Platform\nWhatsApp · Facebook · Messenger\nInstagram · TikTok · X · Telegram]
+    D --&gt; E[System share sheet]
+    E --&gt; F[Shared!]
+    F --&gt; G[Return to current result\nGenerated combination preserved\nMy Picks preserved]
+
+    H([Recipient taps LuckyPick link]) --&gt; I{App installed?}
+    I --&gt;|Yes| J[Open LuckyPick directly]
+    I --&gt;|No| K[Open App Store / Google Play\nLuckyPick listing]</code></pre>
+<div class="admonition danger">
+<p class="admonition-title">Privacy — Absolute Rule</p>
+<p>Shared content must <strong>never</strong> include: generated Main Numbers, Lucky Stars, pet names, birth dates, names, family info, Lucky Numbers entered, or My Picks combinations. Only the Lucky Mode name may be displayed.</p>
+</div>
+<hr />
+<h2 id="10-backend-automation-pipeline">10. Backend Automation Pipeline</h2>
+<pre class="mermaid"><code>flowchart TD
+    A([Tuesday / Friday 20:45 CET]) --&gt; B[Scraper Cron Job fires]
+    B --&gt; C[Fetch from Belgian National Lottery\nprimary official source]
+    C --&gt; D{Data Retrieved?}
+    D --&gt;|No| E[Retry / Fallback source]
+    E --&gt; F{Retrieved?}
+    F --&gt;|No| G[ATTENTION REQUIRED alert\nOwner notified\nExisting 100 draws intact]
+    F --&gt;|Yes| H
+    D --&gt;|Yes| H[Validate Draw Data]
+    H --&gt; I{Passes validation?\n5 unique 1–50\n2 unique 1–12\ncorrect date, no duplicate}
+    I --&gt;|No| J[Do NOT publish\nDo NOT remove oldest draw\nAlert owner]
+    I --&gt;|Yes| K[Add new draw to DB]
+    K --&gt; L[Remove oldest draw\nMaintain exactly 100 draws]
+    L --&gt; M[Update Draw History]
+    L --&gt; N[Update Prize Information]
+    L --&gt; O[Update Jackpot Information]
+    L --&gt; P[Recalculate Statistics\nHot · Cold · Trending · Frequency]
+    M --&gt; Q[Publish to App]
+    N --&gt; Q
+    O --&gt; Q
+    P --&gt; Q
+    Q --&gt; R[Send Results Available notification]
+    R --&gt; S{Jackpot won?}
+    S --&gt;|Yes - validated| T[Send Jackpot Won notification]
+    S --&gt;|No| U[Done for this draw]
+    T --&gt; U</code></pre>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+    
+      
+      <nav class="md-footer__inner md-grid" aria-label="Footer" >
+        
+          
+          <a href="../architecture/" class="md-footer__link md-footer__link--prev" aria-label="Previous: Architecture">
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+            </div>
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Previous
+              </span>
+              <div class="md-ellipsis">
+                Architecture
+              </div>
+            </div>
+          </a>
+        
+        
+          
+          <a href="../uml-diagrams/" class="md-footer__link md-footer__link--next" aria-label="Next: UML Diagrams">
+            <div class="md-footer__title">
+              <span class="md-footer__direction">
+                Next
+              </span>
+              <div class="md-ellipsis">
+                UML Diagrams
+              </div>
+            </div>
+            <div class="md-footer__button md-icon">
+              
+              <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M4 11v2h12l-5.5 5.5 1.42 1.42L19.84 12l-7.92-7.92L10.5 5.5 16 11z"/></svg>
+            </div>
+          </a>
+        
+      </nav>
+    
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.instant", "navigation.tracking", "navigation.tabs", "navigation.sections", "navigation.top", "navigation.footer", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.d7400e89.min.js"></script>
+      
+    
+  </body>
+</html>
