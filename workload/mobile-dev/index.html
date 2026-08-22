@@ -1772,8 +1772,8 @@
 <li>Project setup: Flutter, folder structure, <code>pubspec.yaml</code> dependencies</li>
 <li>Riverpod architecture: <code>ProviderScope</code>, provider families, <code>StateNotifierProvider</code> pattern</li>
 <li>GoRouter setup: <code>StatefulShellRoute</code> (5 tabs), auth redirect guard, <code>push</code> / <code>go</code> navigation</li>
-<li>Dio HTTP client: <code>dioClientProvider</code>, <code>Authorization: Bearer</code> interceptor, 401 token refresh queue, <code>X-Timezone</code> header</li>
-<li><code>json_helpers.dart</code>: <code>parseInt</code>, <code>parseString</code>, <code>parseBool</code>, <code>parseDouble</code>, <code>parseGlobalDateTime</code></li>
+<li>Dio HTTP client: <code>dioClientProvider</code>, <code>Authorization: Bearer</code> interceptor, 401 refresh queue</li>
+<li><code>json_helpers.dart</code>: <code>parseInt</code>, <code>parseString</code>, <code>parseBool</code>, <code>parseDouble</code>, <code>parseDateTime</code></li>
 <li><code>_safe&lt;T&gt;(call, fallback)</code> wrapper for optional/unimplemented endpoints</li>
 <li><code>PagedResponse&lt;T&gt;</code> model and pagination utilities</li>
 <li>App theme: <code>AppColors</code>, <code>AppTypography</code>, dark / light theme setup, Aurora gradient tokens</li>
@@ -1781,8 +1781,8 @@
 </ul>
 <h3 id="localization-l10n">Localization (l10n)</h3>
 <ul>
-<li><code>l10n.yaml</code> configuration (<code>synthetic-package: false</code>, <code>app_ko.arb</code> template)</li>
-<li>All 7 ARB files: <strong>ko</strong> (template), en, ja, zh, th, ru, hi</li>
+<li><code>l10n.yaml</code> configuration (<code>output-dir: lib/l10n</code>, <code>app_en.arb</code> template)</li>
+<li>All 7 ARB files: <strong>en</strong> (template), fr, es, pt, de, it, nl — the EuroMillions markets</li>
 <li>Every user-visible string keyed — never hardcoded</li>
 <li><code>flutter gen-l10n</code> pipeline, <code>AppL10n.of(context)</code> alias <code>t</code></li>
 <li>Language auto-detection on first launch</li>
@@ -1797,9 +1797,9 @@
 <li>Foreground / background / terminated message handling</li>
 <li>Notification tap routing (deep link to Results or My Picks screen)</li>
 <li>Notification type handling:</li>
-<li><code>draw_reminder</code> — fires before each Tuesday / Friday draw</li>
+<li><code>draw_reminder</code> — Mon/Thu 19:00 user-local; the €100M+ copy replaces it, never adds to it</li>
 <li><code>results_available</code> — fires after official numbers are published</li>
-<li><code>jackpot_won</code> — prize-tier win notification</li>
+<li><code>jackpot_won</code> — only when the validated breakdown shows 5+2 winners ≥ 1</li>
 <li>Permission request flow: pre-prompt dialog → OS permission dialog → graceful decline handling</li>
 </ul>
 <h3 id="in-app-purchase-iap">In-App Purchase (IAP)</h3>
@@ -1815,7 +1815,7 @@
 <li>Backend server-side token validation</li>
 <li>Restore purchases</li>
 <li>Free tier enforcement: daily counter (3 free picks), reset at midnight user-local time</li>
-<li>Premium gate checks across all 10 Lucky Modes and Statistics screen</li>
+<li>Premium gate checks across all 9 Lucky Modes and Statistics screen</li>
 <li><code>SubscriptionState</code> notifier: Free / Premium / Expired — drives all gating UI</li>
 </ul>
 <h3 id="generation-engine-client-side">Generation Engine (Client-Side)</h3>
@@ -1826,7 +1826,8 @@
 <li>Family Mode: aggregate of member seeds → combined generation</li>
 <li>Lucky Color Mode: selected colour index → colour-seed offset → weighted selection</li>
 <li>Lucky Number Mode: user numbers anchored, remaining filled with weighted random</li>
-<li>Hot / Cold / Trending / Smart Mix: pulls <code>DrawStatistics</code> from API → applies frequency weights</li>
+<li>Hot &amp; Cold / Smart Mix: pulls <code>DrawStatistics</code> from API → applies frequency weights</li>
+<li>Odd-Even: alternates a 3:2 and 2:3 parity split, no statistics needed</li>
 <li>All modes: output exactly 5 unique main numbers (1–50) + 2 unique Lucky Stars (1–12)</li>
 <li>Generation is client-side — no API call needed after statistics are fetched</li>
 </ul>
@@ -1862,7 +1863,7 @@
 </ul>
 <h4 id="lucky-modes">Lucky Modes</h4>
 <ul>
-<li><code>LuckyModesScreen</code> — grid/list of all 10 modes + Quick Pick, PREMIUM label on locked modes</li>
+<li><code>LuckyModesScreen</code> — the 9 premium modes + Quick Pick, gold PREMIUM label on locked modes</li>
 <li>Mode input screens (one each):</li>
 <li><code>BirthdayModeScreen</code></li>
 <li><code>HoroscopeModeScreen</code> (zodiac auto-display)</li>
@@ -1870,7 +1871,7 @@
 <li><code>FamilyModeScreen</code> (+ADD MEMBER, relationship selector, EDIT / START NEW FAMILY)</li>
 <li><code>LuckyColorModeScreen</code> (10 colour circles, SURPRISE ME)</li>
 <li><code>LuckyNumberModeScreen</code> (1–3 number chips, validation)</li>
-<li>Hot, Cold, Trending, Smart Mix — shared simple layout with GENERATE button</li>
+<li>Hot &amp; Cold, Smart Mix, Odd-Even — shared simple layout with GENERATE button</li>
 <li><code>ModeResultScreen</code> — shared result screen with mode badge and action row</li>
 </ul>
 <h4 id="my-picks">My Picks</h4>
@@ -1921,43 +1922,43 @@
 </thead>
 <tbody>
 <tr>
-<td style="text-align: left;"><code>GET /usr/home</code></td>
-<td style="text-align: left;">HomeScreen pick counter, latest draw preview</td>
+<td style="text-align: left;"><code>GET /usr/me/free-picks</code></td>
+<td style="text-align: left;">HomeScreen pick counter</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>GET /public/store</code></td>
-<td style="text-align: left;">Lucky Modes browser (if mode metadata is server-driven)</td>
+<td style="text-align: left;"><code>GET /public/statistics</code></td>
+<td style="text-align: left;">Statistics screen and the statistical Lucky Modes</td>
 </tr>
 <tr>
 <td style="text-align: left;"><code>GET /usr/me</code></td>
 <td style="text-align: left;">Profile / subscription status (used by SubscriptionState — read only)</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>GET /public/instant-call/draws/latest</code></td>
+<td style="text-align: left;"><code>GET /public/draws/latest</code></td>
 <td style="text-align: left;">ResultsScreen</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>GET /public/instant-call/draws</code></td>
+<td style="text-align: left;"><code>GET /public/draws</code></td>
 <td style="text-align: left;">DrawHistoryScreen</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>GET /public/instant-call/draws/{id}</code></td>
+<td style="text-align: left;"><code>GET /public/draws/{id}</code></td>
 <td style="text-align: left;">DrawDetailScreen</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>GET /usr/mypage</code></td>
+<td style="text-align: left;"><code>GET /usr/picks</code></td>
 <td style="text-align: left;">My Picks active set and saved sets</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>POST /usr/mypage/combinations</code></td>
+<td style="text-align: left;"><code>POST /usr/picks/combinations</code></td>
 <td style="text-align: left;">Save combination to My Picks</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>DELETE /usr/mypage/combinations/{id}</code></td>
+<td style="text-align: left;"><code>DELETE /usr/picks/combinations/{id}</code></td>
 <td style="text-align: left;">Remove combination</td>
 </tr>
 <tr>
-<td style="text-align: left;"><code>POST /usr/mypage/sets</code></td>
+<td style="text-align: left;"><code>POST /usr/picks/sets</code></td>
 <td style="text-align: left;">Start New Set</td>
 </tr>
 <tr>

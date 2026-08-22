@@ -753,10 +753,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features-constraints" class="md-nav__link">
+  <a href="#rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features &amp; Constraints
+        Rules
       
     </span>
   </a>
@@ -764,30 +764,24 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-ticket-validation-checker" class="md-nav__link">
+  <a href="#results-and-what-the-app-must-never-claim" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic Ticket Validation Checker
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Automatic Ticket Validation Checker">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#visual-highlights" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual Highlights:
+        Results, and what the app must never claim
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#saved-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saved Sets
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1226,10 +1220,10 @@
     <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
       
         <li class="md-nav__item">
-  <a href="#features-constraints" class="md-nav__link">
+  <a href="#rules" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Features &amp; Constraints
+        Rules
       
     </span>
   </a>
@@ -1237,30 +1231,24 @@
 </li>
       
         <li class="md-nav__item">
-  <a href="#automatic-ticket-validation-checker" class="md-nav__link">
+  <a href="#results-and-what-the-app-must-never-claim" class="md-nav__link">
     <span class="md-ellipsis">
       
-        Automatic Ticket Validation Checker
-      
-    </span>
-  </a>
-  
-    <nav class="md-nav" aria-label="Automatic Ticket Validation Checker">
-      <ul class="md-nav__list">
-        
-          <li class="md-nav__item">
-  <a href="#visual-highlights" class="md-nav__link">
-    <span class="md-ellipsis">
-      
-        Visual Highlights:
+        Results, and what the app must never claim
       
     </span>
   </a>
   
 </li>
-        
-      </ul>
-    </nav>
+      
+        <li class="md-nav__item">
+  <a href="#saved-sets" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Saved Sets
+      
+    </span>
+  </a>
   
 </li>
       
@@ -1282,27 +1270,56 @@
 
 
 <h1 id="my-picks-combination-management">My Picks &amp; Combination Management</h1>
-<p>The <strong>My Picks</strong> screen allows users to manage, save, organize, and check their generated ticket combinations.</p>
+<p><strong>My Picks</strong> is where a user keeps the combinations they have generated.</p>
 <hr />
-<h2 id="features-constraints">Features &amp; Constraints</h2>
+<h2 id="rules">Rules</h2>
 <ul>
-<li><strong>Maximum Saved Combinations:</strong> Up to <strong>12 combinations</strong> per saved set (representing standard lottery playslips).</li>
-<li><strong>Mode Mixing:</strong> Users can mix lines generated from different Lucky Modes (e.g. 2 Birthday lines + 2 Horoscope lines + 2 Hot/Cold lines) in a single set.</li>
-<li><strong>Duplicate Detection:</strong> Automatic filter prevents adding identical 5+2 number lines to the same set.</li>
+<li><strong>Maximum 12 combinations per set</strong> — one standard lottery playslip.</li>
+<li>When a set is full, the user starts a <strong>new set</strong>. The old one is <strong>archived, never
+  deleted</strong>.</li>
+<li><strong>Mode mixing is allowed.</strong> A single set can hold lines from different Lucky Modes —
+  e.g. 2 Birthday lines + 2 Horoscope lines + 2 Hot &amp; Cold lines.</li>
+<li><strong>No exact duplicates.</strong> A 5+2 combination already in the set cannot be added again.
+  This holds <strong>across different Lucky Modes</strong>, not just within one.</li>
+<li>Generation itself also tries to avoid producing a line already in My Picks.</li>
+<li>Switching Lucky Modes <strong>never</strong> loses existing My Picks or the current mode's inputs.</li>
+<li>Purchasing Premium <strong>never</strong> deletes existing My Picks or Saved Sets.</li>
 </ul>
+<p>The 12-cap and the duplicate rule are enforced <strong>server-side</strong> as well as in the app.</p>
 <hr />
-<h2 id="automatic-ticket-validation-checker">Automatic Ticket Validation Checker</h2>
-<p>When official EuroMillions draw results are published every Tuesday and Friday night, the <strong>Ticket Checker</strong> automatically validates all saved picks:</p>
-<div class="highlight"><pre><span></span><code><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a>Saved Ticket: [ 05 - 12 - 23 - 34 - 48 ] + [ 03 - 09 ]
-<a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>Draw Result:  [ 05 - 12 - 23 - 41 - 50 ] + [ 03 - 11 ]
-<a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>              -----------------------------------------
-<a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a>Match Output: 3 Main Numbers + 1 Lucky Star (Prize Tier 9 Winner! )
-</code></pre></div>
-<h3 id="visual-highlights">Visual Highlights:</h3>
-<ul>
-<li>Matching numbers light up in <strong>Glowing Gold</strong>.</li>
-<li>Displays winning prize tier and estimated prize payout.</li>
-</ul>
+<h2 id="results-and-what-the-app-must-never-claim">Results, and what the app must never claim</h2>
+<p>Official results are published every Tuesday and Friday night. The app shows the draw,
+the winning numbers, and the full official prize breakdown — to every user, free or
+premium.</p>
+<div class="admonition danger">
+<p class="admonition-title">ABSOLUTE — LuckyPick never tells a user they won</p>
+<p>LuckyPick has <strong>no idea whether a generated or saved combination was ever actually
+submitted to a lottery</strong>. It does not sell tickets and takes no part in any draw.
+Claiming or implying a win would be a false statement about a real-money outcome.</p>
+<p><strong>Never build a ticket checker that declares the user a prize-tier winner.</strong></p>
+<p>Forbidden wording, in every language and every surface — push payloads, ARB strings,
+screen copy, share cards:</p>
+<blockquote>
+<p>❌ "Check if you won"
+❌ "You may have won"
+❌ "Your numbers won"
+❌ "Your LuckyPick won"
+❌ "See if your combination won"</p>
+</blockquote>
+<p>Correct phrasing states a fact about the <em>draw</em>, never about the <em>user</em>:</p>
+<blockquote>
+<p>✅ "The latest EuroMillions results are available."
+✅ "View the latest draw results."</p>
+</blockquote>
+</div>
+<p>The <code>jackpot_won</code> notification is about the published breakdown showing a tier-1 winner
+somewhere — never about <em>this</em> user. Every localisation renders it impersonally
+(<em>Jackpot geknackt</em>, <em>Bote acertado</em>, <em>Jackpot atribuído</em>).</p>
+<hr />
+<h2 id="saved-sets">Saved Sets</h2>
+<p>Archived sets are listed by date with their combination count — e.g.
+<em>"8 August 2026 — 6 combinations"</em>. Tapping one expands it to show the combinations with
+their mode labels.</p>
 
 
 
